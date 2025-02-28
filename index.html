@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Firefly</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    
 </head>
 <body>
     <header>
@@ -18,7 +17,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button id="darkmode-toggle">Dark Mode</button></li>
-                <li><button id="googleSignInButton">Sign in with Google</button></li>
+                
             </ul>
         </nav>
     </header>
@@ -54,12 +53,6 @@
         <img src="image2.jpg" alt="Gallery Image 2">
         <img src="image3.jpg" alt="Gallery Image 3">
     </section>
-
-    <section id="iframe-section">
-        <h2>Us on Github:</h2>
-        <iframe src="https://github.com/Project-Firefly-Dev" title="ProjectFirefly Github"></iframe>
-    </section>
-
     <section id="contact">
         <h2>Contact Us</h2>
         <p>Get in touch with us!</p>
@@ -72,40 +65,6 @@
     <footer>
         <p>© 2025 Project Firefly</p>
     </footer>
-
-    <script>
-      // Your Firebase configuration (get this from your Firebase console)
-      const firebaseConfig = {
-        apiKey: "AIzaSyAd7dP_W3dE9lRgbOdRQwje4GxAr06LRKM",
-        authDomain: "sign-in-c498f.firebaseapp.com",
-        projectId: "sign-in-c498f",
-        storageBucket: "sign-in-c498f.firebasestorage.app",
-        messagingSenderId: "996360873904",
-        appId: "1:996360873904:web:db0ba38c1793227ee61875",
-        measurementId: "G-LJ3LBSP2ZB" // Optional
-      };
-
-      firebase.initializeApp(firebaseConfig);
-      const auth = firebase.auth();
-
-      const googleSignInButton = document.getElementById('googleSignInButton');
-      googleSignInButton.addEventListener('click', googleSignIn);
-
-      function googleSignIn() {
-        const provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider).then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
-          const user = result.user;
-          console.log("User signed in:", user);
-          window.location.href = "welcome.html"; // Redirect URL
-        }).catch((error) => {
-          console.error("Sign-in error:", error.code, error.message);
-          alert("Sign-in failed. Please try again.");
-        });
-      }
-
-       // ... other JavaScript (e.g., dark mode toggle) from script.js
     </script>
     <script src="script.js"></script> 
 </body>
