@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Firefly</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
 </head>
 <body>
     <header>
@@ -15,14 +17,17 @@
                 <li><a href="#features">Features</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><button id="darkmode-toggle">Dark Mode</button></li> </ul>
+                <li><button id="darkmode-toggle">Dark Mode</button></li>
+                <li><button id="googleSignInButton">Sign in with Google</button></li>
+            </ul>
         </nav>
     </header>
 
     <section id="hero">
         <h1>Project Firefly</h1>
-        <p>A captivating project illuminating the future.</p> 
-        <img src="hero-image.jpg" alt="Hero Image">  </section>
+        <p>A captivating project illuminating the future.</p>
+        <img src="hero-image.jpg" alt="Hero Image">
+    </section>
 
     <section id="about">
         <h2>About Project Firefly</h2>
@@ -31,17 +36,17 @@
 
     <section id="features">
         <h2>Features</h2>
-            <div class="feature">
-                <img src="feature1.jpg" alt="Feature 1">
-                <h3>Feature 1 Title</h3>
-                <p>Description of feature 1.</p>
-            </div>
-            <div class="feature"> <img src="feature2.jpg" alt="Feature 2">
-                <h3>Feature 2 Title</h3>
-                <p>Description of feature 2.</p>
-            </div>
-      </section>
-
+        <div class="feature">
+            <img src="feature1.jpg" alt="Feature 1">
+            <h3>Feature 1 Title</h3>
+            <p>Description of feature 1.</p>
+        </div>
+        <div class="feature">
+            <img src="feature2.jpg" alt="Feature 2">
+            <h3>Feature 2 Title</h3>
+            <p>Description of feature 2.</p>
+        </div>
+    </section>
 
     <section id="gallery">
         <h2>Gallery</h2>
@@ -61,13 +66,47 @@
         <p>Main Email: Ethan.h.patmore@gmail.com</p>
         <li><a href="https://github.com/Project-Firefly-Dev">Github</a></li>
         <form>
-            </form>
-    </section>
+           </form> </section>
+
 
     <footer>
         <p>© 2025 Project Firefly</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+      // Your Firebase configuration (get this from your Firebase console)
+      const firebaseConfig = {
+        apiKey: "AIzaSyAd7dP_W3dE9lRgbOdRQwje4GxAr06LRKM",
+        authDomain: "sign-in-c498f.firebaseapp.com",
+        projectId: "sign-in-c498f",
+        storageBucket: "sign-in-c498f.firebasestorage.app",
+        messagingSenderId: "996360873904",
+        appId: "1:996360873904:web:db0ba38c1793227ee61875",
+        measurementId: "G-LJ3LBSP2ZB" // Optional
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+
+      const googleSignInButton = document.getElementById('googleSignInButton');
+      googleSignInButton.addEventListener('click', googleSignIn);
+
+      function googleSignIn() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).then((result) => {
+          const credential = GoogleAuthProvider.credentialFromResult(result);
+          const token = credential.accessToken;
+          const user = result.user;
+          console.log("User signed in:", user);
+          window.location.href = "welcome.html"; // Redirect URL
+        }).catch((error) => {
+          console.error("Sign-in error:", error.code, error.message);
+          alert("Sign-in failed. Please try again.");
+        });
+      }
+
+       // ... other JavaScript (e.g., dark mode toggle) from script.js
+    </script>
+    <script src="script.js"></script> 
 </body>
 </html>
