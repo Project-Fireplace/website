@@ -7,7 +7,7 @@ body {
     background-color: #f0f0f0;
     color: #333;
     transition: background-color 0.3s ease, color 0.3s ease;
-    line-height: 1.6; /* Improved readability */
+    line-height: 1.6;
 }
 
 /* Dark Mode Styles */
@@ -32,27 +32,67 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 1rem; /* Space below logo on mobile */
+    width: 100%; /* Occupy full width on mobile */
+    text-align: center; /* Center the logo */
+
 }
 
-nav ul {
+/* Hamburger Menu Styles (Mobile) */
+#hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;        /* Use flexbox to arrange the bars */
+    flex-direction: column; /* Stack bars vertically */
+    justify-content: space-around;  /* Distribute space evenly */
+    width: 30px;       /* Set a width for the button */
+    height: 24px;       /* Set a height */
+    position: absolute;   /* Position absolutely within the nav */
+    top: 1rem;         /* Align to top */
+    right: 1rem;        /* Align to right */
+    z-index: 10;        /* Ensure it's above other elements */
+
+}
+
+#hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease; /* Smooth transitions */
+}
+
+/* Hide the navigation links by default on mobile */
+#nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: #333; /* Same as header */
+    position: absolute; /* Absolute positioning */
+    top: 64px;         /* Position below the header (adjust as needed) */
+    left: 0;         /* Start from the left edge */
+    z-index: 5;         /* Ensure it's below the hamburger */
+
+}
+/* Show Nav links when 'open' class is present*/
+#nav-links.open {
+   display: flex; /* Show the menu */
     flex-direction: column; /* Stack menu items vertically */
-    width: 100%; /* Full width on mobile */
-    text-align: center; /* Center menu items */
+
 }
 
 nav li {
-    margin: 0.5rem 0; /* Spacing between menu items */
+    margin: 0.5rem 0;
 }
 
 nav a {
     text-decoration: none;
     color: white;
-    display: block; /* Make links fill the list item space */
-    padding: 0.5rem; /* Add some padding for clickability */
+    display: block;
+    padding: 0.5rem;
 }
 nav button {
     margin-top: 10px;
@@ -60,29 +100,29 @@ nav button {
 
 #hero {
     text-align: center;
-    padding: 1rem; /* Reduced padding on mobile */
+    padding: 1rem;
 }
 
 #hero img {
-    max-width: 100%; /* Image fills the container */
+    max-width: 100%;
     height: auto;
-    margin: 1rem 0; /* Reduced margin */
+    margin: 1rem 0;
     display: block;
 }
 
 section {
-    padding: 1rem; /* Reduced padding on mobile */
+    padding: 1rem;
 }
 
 #features {
     display: flex;
-    flex-direction: column; /* Stack features vertically on mobile */
-    align-items: center; /* Center features */
+    flex-direction: column;
+    align-items: center;
 }
 
 .feature {
-    width: 90%; /* Wider features on mobile */
-    margin-bottom: 1rem; /* Reduced margin */
+    width: 90%;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -98,10 +138,10 @@ section {
 }
 
 #gallery img {
-    width: 100%;  /* Full width on mobile */
-    max-width: 300px; /* Limit maximum width, even on larger mobiles */
+    width: 100%;
+    max-width: 300px;
     height: auto;
-    margin: 0.5rem; /* Reduced margin */
+    margin: 0.5rem;
 }
 
 #iframe-section {
@@ -109,8 +149,8 @@ section {
 }
 
 iframe {
-    width: 95%; /* Nearly full width */
-    height: 200px; /* Smaller height on mobile */
+    width: 95%;
+    height: 200px;
     border: 0;
 }
 
@@ -125,21 +165,30 @@ footer {
 /* Tablet Styles (min-width: 768px) */
 @media (min-width: 768px) {
     nav {
-        flex-direction: row; /* Horizontal navigation */
+        flex-direction: row;
         justify-content: space-between;
     }
+     .logo{
+        text-align: left;
+     }
 
-    .logo {
-        margin-bottom: 0; /* Remove bottom margin */
+    #hamburger-menu {
+        display: none; /* Hide hamburger on tablet/desktop */
     }
 
-    nav ul {
-        flex-direction: row; /* Horizontal menu items */
-        width: auto; /* Don't force full width */
+    #nav-links {
+        display: flex; /* Always show nav links on tablet/desktop */
+        flex-direction: row;
+        width: auto;
+        position: static; /* Reset positioning */
+        background-color: transparent; /* No background */
+    }
+        #nav-links.open{
+        flex-direction: row;
     }
 
     nav li {
-        margin: 0 0 0 1rem; /* Spacing on the left */
+        margin: 0 0 0 1rem;
     }
 
     #hero img{
@@ -147,19 +196,18 @@ footer {
     }
 
     #features {
-        flex-direction: row; /* Features side-by-side */
-        flex-wrap: wrap; /* Allow wrapping */
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
     }
 
     .feature {
-        width: 45%; /* Two features per row */
+        width: 45%;
     }
 
     #gallery img {
         width: auto;
-        max-width: 200px; /* Back to original size */
-
+        max-width: 200px;
     }
         iframe {
         height: 300px; /* Adjust as needed */
