@@ -4,12 +4,24 @@ const body = document.body;
 
 darkModeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
-    // Save the preference to local storage (optional)
     localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
 });
 
-
-// Check for saved preference on page load (optional)
 if (localStorage.getItem('darkMode') === 'true') {
     body.classList.add('dark-mode');
+}
+
+// Touch Device Detection (Optional, for advanced features)
+function isTouchDevice() {
+  return (('ontouchstart' in window) ||
+          (navigator.maxTouchPoints > 0) ||
+          (navigator.msMaxTouchPoints > 0));
+}
+
+if (isTouchDevice()) {
+  // You could add a class to the body, for example:
+  body.classList.add('touch-device');
+  // ... and then use this class in your CSS for touch-specific styles.
+  // For example, larger tap targets.  This is beyond the basic
+  // responsive design, but a good practice.
 }
