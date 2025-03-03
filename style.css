@@ -1,33 +1,37 @@
 /* style.css */
+
+/* Base Styles (Mobile First) */
 body {
     font-family: sans-serif;
     margin: 0;
-    background-color: #f0f0f0; /* Light mode background */
-    color: #333; /* Light mode text */
+    background-color: #f0f0f0;
+    color: #333;
     transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6; /* Improved readability */
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background-color: #121212; /* Dark background */
-    color: #eee; /* Light text */
+    background-color: #121212;
+    color: #eee;
 }
 
 header {
-    background-color: #333;  /* Darker header */
+    background-color: #333;
     color: white;
     padding: 1rem;
 }
 
 nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center items horizontally */
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    margin-bottom: 1rem; /* Space below logo on mobile */
 }
 
 nav ul {
@@ -35,42 +39,50 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column; /* Stack menu items vertically */
+    width: 100%; /* Full width on mobile */
+    text-align: center; /* Center menu items */
 }
 
 nav li {
-    margin-left: 20px;
+    margin: 0.5rem 0; /* Spacing between menu items */
 }
 
 nav a {
     text-decoration: none;
     color: white;
+    display: block; /* Make links fill the list item space */
+    padding: 0.5rem; /* Add some padding for clickability */
+}
+nav button {
+    margin-top: 10px;
 }
 
 #hero {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem; /* Reduced padding on mobile */
 }
 
 #hero img {
-    max-width: 80%;
+    max-width: 100%; /* Image fills the container */
     height: auto;
-    margin: 20px auto;
+    margin: 1rem 0; /* Reduced margin */
     display: block;
 }
 
 section {
-    padding: 2rem;
+    padding: 1rem; /* Reduced padding on mobile */
 }
 
 #features {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column; /* Stack features vertically on mobile */
+    align-items: center; /* Center features */
 }
 
 .feature {
-    width: 30%; /* Adjust as needed */
-    margin-bottom: 20px;
+    width: 90%; /* Wider features on mobile */
+    margin-bottom: 1rem; /* Reduced margin */
     text-align: center;
 }
 
@@ -86,19 +98,19 @@ section {
 }
 
 #gallery img {
-    width: 200px;  /* Adjust as needed */
+    width: 100%;  /* Full width on mobile */
+    max-width: 300px; /* Limit maximum width, even on larger mobiles */
     height: auto;
-    margin: 10px;
+    margin: 0.5rem; /* Reduced margin */
 }
 
-
 #iframe-section {
-    text-align: center; /* Center the iframe */
+    text-align: center;
 }
 
 iframe {
-    width: 80%; /* Adjust as needed */
-    height: 400px; /* Adjust as needed */
+    width: 95%; /* Nearly full width */
+    height: 200px; /* Smaller height on mobile */
     border: 0;
 }
 
@@ -110,20 +122,57 @@ footer {
 }
 
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Tablet Styles (min-width: 768px) */
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row; /* Horizontal navigation */
+        justify-content: space-between;
+    }
+
+    .logo {
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
     nav ul {
-        flex-direction: column;
+        flex-direction: row; /* Horizontal menu items */
+        width: auto; /* Don't force full width */
     }
+
     nav li {
-        margin: 10px 0;
+        margin: 0 0 0 1rem; /* Spacing on the left */
     }
+
+    #hero img{
+        max-width: 80%;
+    }
+
     #features {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row; /* Features side-by-side */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: space-around;
     }
 
     .feature {
-        width: 90%;
+        width: 45%; /* Two features per row */
+    }
+
+    #gallery img {
+        width: auto;
+        max-width: 200px; /* Back to original size */
+
+    }
+        iframe {
+        height: 300px; /* Adjust as needed */
+    }
+}
+/* Desktop Styles (min-width: 1024px) */
+@media (min-width: 1024px) {
+
+    .feature{
+        width: 30%;
+    }
+
+    iframe {
+        height: 400px;
     }
 }
