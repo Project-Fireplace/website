@@ -111,6 +111,10 @@ nav a {
 
 nav button {
     margin-top: 10px;
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center; /* Vertically center icon and text */
+    justify-content: center; /* Horizontally center within the button */
+
 }
 
 #hero {
@@ -234,6 +238,9 @@ footer {
         transition: none;
 
     }
+    nav button{
+         justify-content: flex-start;
+    }
 
     #hero img{
         max-width: 80%;
@@ -288,6 +295,14 @@ footer {
     color: white;
     cursor: pointer;
     font-size: 1rem;
+    padding: 0; /* Remove padding */
+}
+
+/* Hide dark mode label on desktop */
+@media (min-width: 768px) {
+    .darkmode-label {
+        display: none;
+    }
 }
 
 /* Style specific to links within nav */
