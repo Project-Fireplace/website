@@ -6,7 +6,7 @@ body {
     margin: 0;
     background-color: #f0f0f0;
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+    transition: background-color 0.3s ease, color 0.3s ease;
     line-height: 1.6;
 }
 
@@ -49,53 +49,53 @@ nav {
     z-index: 10;
     color: white;
     font-size: 24px;
-    transition: transform 0.3s ease; /* Smooth rotation */
+    transition: transform 0.3s ease;
 }
 
 /* Rotate hamburger icon on click */
 #hamburger-menu.open {
-    transform: rotate(90deg); /* Rotate for a close icon effect */
+    transform: rotate(90deg);
 }
-
 
 /* Hide the navigation links by default on mobile */
 #nav-links {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Use flex for animation */
+    display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
     background-color: #333;
     position: absolute;
-    top: 64px;  /* Adjust based on header height */
+    top: 64px;
     left: 0;
     z-index: 5;
-    max-height: 0; /* Initially hidden */
-    overflow: hidden; /* Hide the overflowing content */
-    transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth slide-down and fade */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
 }
 
-/* Show Nav links when 'open' class is present*/
+/* Show Nav links when 'open' class is present */
 #nav-links.open {
-    max-height: 500px; /* Adjust as needed - enough to show all links */
+    max-height: 500px;
     opacity: 1;
-
 }
 
 nav li {
     margin: 0.5rem 0;
-    opacity: 0; /* Initially hidden for animation */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth fade and slide */
-    transform: translateY(-10px); /* Start slightly above */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
 }
-/*animate items in one by one*/
+
+/* Animate items in one by one */
 #nav-links.open li {
     opacity: 1;
     transform: translateY(0);
 }
+
 #nav-links.open li:nth-child(1) { transition-delay: 0.1s; }
 #nav-links.open li:nth-child(2) { transition-delay: 0.2s; }
 #nav-links.open li:nth-child(3) { transition-delay: 0.3s; }
@@ -111,22 +111,20 @@ nav a {
 
 nav button {
     margin-top: 10px;
-    display: flex; /* Use flexbox to align icon and text */
-    align-items: center; /* Vertically center icon and text */
-    justify-content: center; /* Horizontally center within the button */
-
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center on mobile */
+    width: 100%; /* Full width on mobile */
+    padding: 0.5rem; /* Consistent padding */
 }
 
 #hero {
     text-align: center;
     padding: 1rem;
-    /*animation: fadeIn 1s ease forwards; /* Fade in on load */
-}
-#hero img{
-   animation: fadeIn 1s ease forwards; /* Fade in on load */
 }
 
 #hero img {
+    animation: fadeIn 1s ease forwards;
     max-width: 100%;
     height: auto;
     margin: 1rem 0;
@@ -135,7 +133,7 @@ nav button {
 
 section {
     padding: 1rem;
-    animation: fadeIn 1s ease forwards; /* Fade in on load */
+    animation: fadeIn 1s ease forwards;
 }
 
 #features {
@@ -148,7 +146,7 @@ section {
     width: 90%;
     margin-bottom: 1rem;
     text-align: center;
-    transition: transform 0.2s ease; /* Smooth scaling */
+    transition: transform 0.2s ease;
     border: 1px solid #ddd;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -156,8 +154,8 @@ section {
 }
 
 .feature:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add a slightly bigger shadow*/
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .feature img {
@@ -176,12 +174,12 @@ section {
     max-width: 300px;
     height: auto;
     margin: 0.5rem;
-     transition: transform 0.3s ease; /* Smooth transition */
-
+    transition: transform 0.3s ease;
 }
+
 #gallery img:hover {
     transform: scale(1.1);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add a slightly bigger shadow*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 #iframe-section {
@@ -201,48 +199,54 @@ footer {
     color: white;
 }
 
-
 /* Tablet Styles (min-width: 768px) */
 @media (min-width: 768px) {
     nav {
         flex-direction: row;
         justify-content: space-between;
     }
-     .logo{
+
+    .logo {
         text-align: left;
-     }
+    }
 
     #hamburger-menu {
-        display: none; /* Hide hamburger on tablet/desktop */
+        display: none;
     }
 
     #nav-links {
-        display: flex; /* Always show nav links on tablet/desktop */
+        display: flex;
         flex-direction: row;
         width: auto;
-        position: static; /* Reset positioning */
-        background-color: transparent; /* No background */
-        max-height: none; /* Remove max-height */
-        overflow: visible; /* Remove overflow */
-        opacity: 1; /* Ensure it's visible */
-        transition: none; /*remove animations*/
+        position: static;
+        background-color: transparent;
+        max-height: none;
+        overflow: visible;
+        opacity: 1;
+        transition: none;
     }
-        #nav-links.open{
+
+    #nav-links.open {
         flex-direction: row;
     }
 
     nav li {
         margin: 0 0 0 1rem;
-        opacity: 1; /* Reset opacity */
-        transform: none; /* Reset transform*/
+        opacity: 1;
+        transform: none;
         transition: none;
-
-    }
-    nav button{
-         justify-content: flex-start;
     }
 
-    #hero img{
+    nav button {
+        justify-content: flex-start; /* Left-align on desktop */
+        width: auto; /* Only take up needed space */
+        padding: 0; /* Remove padding on desktop */
+    }
+     #darkmode-toggle{
+        margin-right: 20px;
+    }
+
+    #hero img {
         max-width: 80%;
     }
 
@@ -262,14 +266,15 @@ footer {
         width: auto;
         max-width: 200px;
     }
-        iframe {
-        height: 300px; /* Adjust as needed */
+
+    iframe {
+        height: 300px;
     }
 }
+
 /* Desktop Styles (min-width: 1024px) */
 @media (min-width: 1024px) {
-
-    .feature{
+    .feature {
         width: 30%;
     }
 
@@ -278,14 +283,14 @@ footer {
     }
 }
 
-/* Style for Material Icons (adjust as needed) */
+/* Style for Material Icons */
 .material-icons {
-    vertical-align: middle; /* Align icons with text */
-    margin-right: 0.5rem; /* Add some spacing */
-    /* Add more styles like font-size, color, etc. if needed */
+    vertical-align: middle;
+    margin-right: 0.5rem;
 }
-#darkmode-toggle .material-icons{
-     margin-right: 0rem;
+
+#darkmode-toggle .material-icons {
+    margin-right: 0rem; /* Remove margin on desktop */
 }
 
 /* Style for Dark Mode Toggle */
@@ -295,7 +300,6 @@ footer {
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    padding: 0; /* Remove padding */
 }
 
 /* Hide dark mode label on desktop */
@@ -309,18 +313,22 @@ footer {
 nav a span.material-icons {
     margin-right: 0.2rem;
 }
-/*Contact links */
-#contact a{
-     color: #333;
-      text-decoration: none;
+
+/* Contact links */
+#contact a {
+    color: #333;
+    text-decoration: none;
 }
-body.dark-mode #contact a{
-    color:#eee;
+
+body.dark-mode #contact a {
+    color: #eee;
 }
-#contact a .material-icons{
+
+#contact a .material-icons {
     margin-right: 0.3rem;
 }
-#contact p .material-icons{
+
+#contact p .material-icons {
     margin-right: 0.3rem;
 }
 #darkmode-toggle span{
@@ -331,7 +339,7 @@ body.dark-mode #contact a{
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
