@@ -2,7 +2,8 @@
 
 /* --- Material You Inspired Variables --- */
 :root {
-    --md-sys-color-primary: #6750A4; /* Example primary color */
+    /* Light Theme Colors */
+    --md-sys-color-primary: #6750A4;
     --md-sys-color-on-primary: #FFFFFF;
     --md-sys-color-primary-container: #E9DDFF;
     --md-sys-color-on-primary-container: #22005D;
@@ -11,13 +12,13 @@
     --md-sys-color-secondary-container: #E8DEF8;
     --md-sys-color-on-secondary-container: #1E192B;
     --md-sys-color-surface: #FFFBFE;
-    --md-sys-color-on-surface: #1C1B1F;
+    --md-sys-color-on-surface: #1C1B1F; /* Text color in light mode */
     --md-sys-color-surface-variant: #E7E0EC;
     --md-sys-color-on-surface-variant: #49454E;
     --md-sys-color-outline: #79747E;
-    --md-sys-color-shadow: #000000;  /* Used for shadows */
+    --md-sys-color-shadow: #000000;
     --md-sys-color-inverse-surface: #313033;
-     --md-sys-color-inverse-on-surface: #F4EFF4;
+    --md-sys-color-inverse-on-surface: #F4EFF4;
 
     /* Dark Theme Colors */
     --md-dark-sys-color-primary: #CBB2FF;
@@ -29,10 +30,10 @@
     --md-dark-sys-color-secondary-container: #4A4458;
     --md-dark-sys-color-on-secondary-container: #E8DEF8;
     --md-dark-sys-color-surface: #1C1B1F;
-    --md-dark-sys-color-on-surface: #E6E1E5;
+    --md-dark-sys-color-on-surface: #E6E1E5; /* Text color in dark mode */
     --md-dark-sys-color-surface-variant: #49454E;
     --md-dark-sys-color-on-surface-variant: #CAC4CF;
-     --md-dark-sys-color-outline: #948F99;
+    --md-dark-sys-color-outline: #948F99;
     --md-dark-sys-color-inverse-surface: #E9DDFF;
     --md-dark-sys-color-inverse-on-surface: #313033;
 
@@ -41,17 +42,19 @@
     --md-sys-spacing-medium: 8px;
     --md-sys-spacing-large: 16px;
 
-     /*Elevation*/
+    /*Elevation*/
     --md-sys-elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     --md-sys-elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30);
     --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
 
-
+     /* Link Colors for map.html #about section ONLY */
+    --link-color-light: #000000;       /* Black for light mode */
+    --link-color-dark: #FFFFFF;        /* White for dark mode */
 }
 
 /* Base Styles (Mobile First) */
 body {
-    font-family: 'Roboto', sans-serif; /* Use Roboto */
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
@@ -73,7 +76,7 @@ body.dark-mode {
     --md-sys-color-on-surface: var(--md-dark-sys-color-on-surface);
     --md-sys-color-surface-variant: var(--md-dark-sys-color-surface-variant);
     --md-sys-color-on-surface-variant: var(--md-dark-sys-color-on-surface-variant);
-     --md-sys-color-outline: var(--md-dark-sys-color-outline);
+    --md-sys-color-outline: var(--md-dark-sys-color-outline);
     background-color: var(--md-sys-color-surface);
     color: var(--md-sys-color-on-surface);
 }
@@ -82,11 +85,11 @@ header {
     background-color: var(--md-sys-color-primary-container);
     color: var(--md-sys-color-on-primary-container);
     padding: 1rem;
-     box-shadow: var(--md-sys-elevation-1); /* Add a subtle shadow */
-
+    box-shadow: var(--md-sys-elevation-1);
 }
-nav{
-     background-color: var(--md-sys-color-primary-container);
+
+nav {
+    background-color: var(--md-sys-color-primary-container);
 }
 
 nav {
@@ -97,7 +100,7 @@ nav {
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 500; /* Medium weight */
+    font-weight: 500;
     margin-bottom: 1rem;
     width: 100%;
     text-align: center;
@@ -114,7 +117,7 @@ nav {
     top: 1rem;
     right: 1rem;
     z-index: 10;
-   color: var(--md-sys-color-on-primary-container);
+    color: var(--md-sys-color-on-primary-container);
     font-size: 24px;
     transition: transform 0.3s ease;
 }
@@ -123,7 +126,6 @@ nav {
 #hamburger-menu.open {
     transform: rotate(90deg);
 }
-
 
 /* Hide the navigation links by default on mobile */
 #nav-links {
@@ -143,7 +145,7 @@ nav {
     overflow: hidden;
     transition: max-height 0.3s ease, opacity 0.3s ease;
     opacity: 0;
-     box-shadow: var(--md-sys-elevation-1); /* Add a subtle shadow */
+    box-shadow: var(--md-sys-elevation-1);
 }
 
 /* Show Nav links when 'open' class is present*/
@@ -169,12 +171,13 @@ nav li {
 #nav-links.open li:nth-child(4) { transition-delay: 0.4s; }
 #nav-links.open li:nth-child(5) { transition-delay: 0.5s; }
 
+/* --- Navigation Link Styles (Preserved) --- */
 nav a {
     text-decoration: none;
-    color: var(--md-sys-color-on-primary-container);
+    color: var(--md-sys-color-on-primary-container); /*  Keep original nav link color */
     display: block;
     padding: 0.5rem;
-    border-radius: 24px; /* Rounded corners */
+    border-radius: 24px;
 }
 
 
@@ -236,7 +239,7 @@ nav button:not(:focus)::after{
 
 section {
     padding: 1rem;
-    animation: fadeIn 1s ease forwards; /* Fade in on load */
+    animation: fadeIn 1s ease forwards;
 }
 
 #features {
@@ -250,22 +253,22 @@ section {
     margin-bottom: 1rem;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid var(--md-sys-color-outline); /* Use outline color */
+    border: 1px solid var(--md-sys-color-outline);
     padding: 10px;
     box-shadow: var(--md-sys-elevation-1);
-    border-radius: 16px; /* Rounded corners */
+    border-radius: 16px;
     background-color: var(--md-sys-color-surface-variant);
 }
 
 .feature:hover {
     transform: scale(1.03);
-    box-shadow: var(--md-sys-elevation-2); /* Slightly larger shadow */
+    box-shadow: var(--md-sys-elevation-2);
 }
 
 .feature img {
     max-width: 100%;
     height: auto;
-     border-radius: 12px; /* Rounded corners */
+     border-radius: 12px;
 }
 
 #gallery {
@@ -279,8 +282,8 @@ section {
     max-width: 300px;
     height: auto;
     margin: 0.5rem;
-     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-     border-radius: 8px; /* Rounded corners */
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+     border-radius: 8px;
 }
 #gallery img:hover {
     transform: scale(1.1);
@@ -295,7 +298,7 @@ iframe {
     width: 95%;
     height: 200px;
     border: 0;
-     border-radius: 12px; /* Rounded corners */
+     border-radius: 12px;
 }
 
 footer {
@@ -385,11 +388,11 @@ footer {
 
 /* Style for Material Icons (adjust as needed) */
 .material-icons {
-    vertical-align: middle; /* Align icons with text */
-    margin-right: 0.5rem; /* Add some spacing */
-     font-size: 24px; /* Consistent icon size */
-
+    vertical-align: middle;
+    margin-right: 0.5rem;
+     font-size: 24px;
 }
+
 #darkmode-toggle .material-icons{
      margin-right: 0rem;
 }
@@ -414,6 +417,25 @@ footer {
 nav a span.material-icons {
     margin-right: 0.2rem;
 }
+
+/* --- map.html Link Styles (in #about section) --- */
+/*  Target links specifically in the #about section of map.html */
+#about a {
+    color: var(--link-color-light); /* Default to black in light mode */
+    text-decoration: none;  /* Remove underlines */
+}
+
+body.dark-mode #about a {
+    color: var(--link-color-dark); /* White in dark mode */
+}
+
+/* Ensure icons inside the links inherit the link color */
+#about a .material-icons {
+    color: inherit;  /* Inherit color from the parent <a> tag */
+    margin-right: 0.3rem; /* Consistent spacing */
+}
+/*end map.html styles*/
+
 /*Contact links */
 #contact a{
       color: var(--md-sys-color-primary);
@@ -436,7 +458,7 @@ body.dark-mode #contact a{
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
