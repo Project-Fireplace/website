@@ -33,6 +33,8 @@ darkModeToggle.addEventListener('click', () => {
     body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
     updateDarkModeUI(); // Update icon AND label
+    //Ripple effect logic
+
 });
 
 // Initial setup (on page load)
