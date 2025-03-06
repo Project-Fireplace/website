@@ -3,14 +3,14 @@
 /* --- Material You Inspired Variables --- */
 :root {
     /* Light Theme Colors */
-    --md-sys-color-primary: #ff9e44;
+    --md-sys-color-primary: #6750A4;
     --md-sys-color-on-primary: #FFFFFF;
     --md-sys-color-primary-container: #E9DDFF;
-    --md-sys-color-on-primary-container: #5d2200;
-    --md-sys-color-secondary: #9e7f5c;
+    --md-sys-color-on-primary-container: #22005D;
+    --md-sys-color-secondary: #625B71;
     --md-sys-color-on-secondary: #FFFFFF;
-    --md-sys-color-secondary-container: #f8f2de;
-    --md-sys-color-on-secondary-container: #2b2519;
+    --md-sys-color-secondary-container: #E8DEF8;
+    --md-sys-color-on-secondary-container: #1E192B;
     --md-sys-color-surface: #FFFBFE;
     --md-sys-color-on-surface: #1C1B1F; /* Text color in light mode */
     --md-sys-color-surface-variant: #E7E0EC;
@@ -21,21 +21,21 @@
     --md-sys-color-inverse-on-surface: #F4EFF4;
 
     /* Dark Theme Colors */
-    --md-sys-color-primary: #ff9e44;
-    --md-dark-sys-color-on-primary: #72471e;
-    --md-dark-sys-color-primary-container: #8a7737;
-    --md-dark-sys-color-on-primary-container: #fff1dd;
-    --md-dark-sys-color-secondary: #dbd2c2;
-    --md-dark-sys-color-on-secondary: #413b2d;
-    --md-dark-sys-color-secondary-container: #585044;
-    --md-dark-sys-color-on-secondary-container: #f8f0de;
-    --md-dark-sys-color-surface: #66591f;
-    --md-dark-sys-color-on-surface: #e6e4e1; /* Text color in dark mode */
-    --md-dark-sys-color-surface-variant: #4e4c45;
+    --md-dark-sys-color-primary: #CBB2FF;
+    --md-dark-sys-color-on-primary: #381E72;
+    --md-dark-sys-color-primary-container: #4F378A;
+    --md-dark-sys-color-on-primary-container: #E9DDFF;
+    --md-dark-sys-color-secondary: #CBC2DB;
+    --md-dark-sys-color-on-secondary: #332D41;
+    --md-dark-sys-color-secondary-container: #4A4458;
+    --md-dark-sys-color-on-secondary-container: #E8DEF8;
+    --md-dark-sys-color-surface: #1C1B1F;
+    --md-dark-sys-color-on-surface: #E6E1E5; /* Text color in dark mode */
+    --md-dark-sys-color-surface-variant: #49454E;
     --md-dark-sys-color-on-surface-variant: #CAC4CF;
-    --md-dark-sys-color-outline: #99958f;
-    --md-dark-sys-color-inverse-surface: #fff0dd;
-    --md-dark-sys-color-inverse-on-surface: #333230;
+    --md-dark-sys-color-outline: #948F99;
+    --md-dark-sys-color-inverse-surface: #E9DDFF;
+    --md-dark-sys-color-inverse-on-surface: #313033;
 
     /* Spacing */
     --md-sys-spacing-small: 4px;
