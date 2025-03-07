@@ -3,16 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Firefly</title>
+    <title>Project Fireplace</title>
     <link rel="stylesheet" href="../style.css">
     <!-- Include Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+      /* Add this CSS */
+      @media (min-width: 768px) { /* Adjust breakpoint as needed */
+        #information1 {
+          display: flex;
+          flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+          justify-content: space-between; /* Adjust spacing as desired */
+        }
+
+        .feature {
+          width: 48%; /* Adjust width to fit two side-by-side */
+          margin-bottom: 20px; /*  Add space between rows */
+        }
+      }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Project Firefly</div>
+            <div class="logo">Project Fireplace</div>
             <button id="hamburger-menu" aria-label="Menu">
                 <span class="material-icons">menu</span>
             </button>
@@ -20,6 +35,7 @@
                 <li><a href="../index.html#hero"><span class="material-icons">home</span>Home</a></li>
                 <li><a href="../index.html#features"><span class="material-icons">settings</span>Features</a></li>
                 <li><a href="../index.html#gallery"><span class="material-icons">photo_library</span>Gallery</a></li>
+                <li><a href="../contact/contact.html"><span class="material-icons">contact_mail</span>Contact</a></li>
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons">dark_mode</span>
@@ -31,27 +47,33 @@
     </header>
 
     <section id="hero">
-        <h1>Contact The Team</h1>
-        <p>Message the team, give us suggestions or request to join.</p>
-        <img src="hero-image.jpg" alt="Hero Image">
-    </section>
-  
-    <section id="contact">
-            <h2>Our info</h2>
-            <p>make sure to get in touch with us!</p>
-            <p><span class="material-icons">email</span> CEO: Ethan.h.patmore@gmail.com</p>
-            <p><span class="material-icons">email</span> Head of Lua,Game Developing and marketing: ben.j.steels@gmail.com</p>
-            <p><span class="material-icons">email</span> Lead of Penguin, finance Ltd: samayomidek@gmail.com</p>
-            <p><span class="material-icons">email</span> Buisness: firelight-bot@mailfence.com</p>
-            <p><span class="material-icons">email</span> customer support: firelight-bot@mailfence.com</p>
-            <p><a href="https://github.com/Project-Firefly-Dev"><span class="material-icons">code</span> Github</a></p>
-            <form>
-            </form>
+        <h1>Project Luna</h1>
+        <p>Code used for apps and games.</p>
+        <img src="lua_hero.jpg" alt="Hero Image">
     </section>
 
+    <section id="about">
+        <h2>About Project Luna</h2>
+        <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform.</p>
+    </section>
 
+    <section id="information1">
+        <h2>Features</h2>
+        <div class="feature">
+            <img src="https://img.icons8.com/fluent/452/roblox-studio.png" alt="Feature 1">
+            <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
+        </div>
+        
+        <div class="feature">
+            <img src="https://undermywheel.gallerycdn.vsassets.io/extensions/undermywheel/roblox-lua/1.0.5/1656911947734/Microsoft.VisualStudio.Services.Icons.Default" alt="Feature 2">
+            <h3>Lua is the language you have to learn to be able to code on roblox studio</h3>
+        </div>
+    </section>
+
+ 
+        
     <footer>
-        <p>© 2025 Project Firefly</p>
+        <p>© 2025 Project Fireplace</p>
     </footer>
     </script>
     <script src="../script.js"></script>
