@@ -8,6 +8,40 @@
     <!-- Include Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add this CSS to your luna_style.css file, or within a <style> tag in the <head> */
+        .image-container {
+            display: flex;  /* Use flexbox for easy horizontal layout */
+            flex-direction: row; /* Arrange items horizontally */
+            justify-content: center; /* Center images horizontally */
+            align-items: center;     /* Vertically center items (optional, adjust as needed) */
+            gap: 20px; /* Add some space between the images (optional) */
+            width: 100%; /* Ensure the container takes up the full width */
+            flex-wrap: wrap; /* Allow images to wrap to the next line on smaller screens */
+        }
+
+        .image-container img {
+            max-width: 45%; /* Make images responsive, adjust as needed */
+            height: auto;   /* Maintain aspect ratio */
+             /* Optional: Add a maximum height if you want */
+        }
+       .feature {
+            display: flex; /*lets do this one with flex to*/
+            flex-direction: column; /* Stack content vertically within each feature */
+            align-items: center; /* Center content horizontally */
+            text-align: center; /* Center text */
+            margin-bottom: 20px; /* Add some space between feature sections */
+        }
+        /* Style for smaller screens (mobile-first approach) */
+      @media (max-width: 768px) {
+           .image-container {
+              flex-direction: column; /* Stack images vertically on smaller screens */
+           }
+           .image-container img{
+            max-width: 90%; /* images in a column make them a bit bigger*/
+           }
+      }
+    </style>
 </head>
 <body>
     <header>
@@ -44,19 +78,19 @@
 
     <section id="information1">
         <h2>Features</h2>
-        <div class="feature">
-            <img src="https://img.icons8.com/fluent/452/roblox-studio.png" alt="Feature 1">
-            <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
-        </div>
-        
-        <div class="feature">
-            <img src="https://undermywheel.gallerycdn.vsassets.io/extensions/undermywheel/roblox-lua/1.0.5/1656911947734/Microsoft.VisualStudio.Services.Icons.Default" alt="Feature 2">
-            <h3>Lua is the language you have to learn to be able to code on roblox studio</h3>
-        <div>
-    <section>
+        <div class="image-container">  {/* Wrap the images in a container */}
+             <div class="feature">
+                 <img src="https://img.icons8.com/fluent/452/roblox-studio.png" alt="Feature 1">
+                 <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
+              </div>
 
- 
-        
+             <div class="feature">
+                <img src="https://undermywheel.gallerycdn.vsassets.io/extensions/undermywheel/roblox-lua/1.0.5/1656911947734/Microsoft.VisualStudio.Services.Icons.Default" alt="Feature 2">
+                <h3>Lua is the language you have to learn to be able to code on roblox studio</h3>
+            </div>
+         </div>
+       </section>
+
     <footer>
         <p>© 2025 Project Fireplace</p>
     </footer>
