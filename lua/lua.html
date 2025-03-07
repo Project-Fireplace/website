@@ -11,77 +11,78 @@
     <style>
         /* Add this CSS to your luna_style.css file, or within a <style> tag in the <head> */
         .image-container {
-            display: flex;  /* Use flexbox for easy horizontal layout */
-            flex-direction: row; /* Arrange items horizontally */
-            justify-content: center; /* Center images horizontally */
-            align-items: center;     /* Vertically center items (optional, adjust as needed) */
-            gap: 20px; /* Add some space between the images (optional) */
-            width: 100%; /* Ensure the container takes up the full width */
-            flex-wrap: wrap; /* Allow images to wrap to the next line on smaller screens */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            flex-wrap: wrap;
         }
 
         .image-container img {
-            /* Keep original image sizing - removed max-width and height rules*/
-            /*max-width: 45%;  Removed to keep original size */
-            /*height: auto;    Removed to keep original size */
-             /* Optional: Add a maximum height if you want */
-            height: 200px; /* Set a fixed height for both images. Adjust as needed! */
-            width: auto;  /* Let width adjust automatically to maintain aspect ratio */
+            height: 200px;
+            width: auto;
         }
+
        .feature {
-            display: flex; /*lets do this one with flex to*/
-            flex-direction: column; /* Stack content vertically within each feature */
-            align-items: center; /* Center content horizontally */
-            text-align: center; /* Center text */
-            margin-bottom: 20px; /* Add some space between feature sections */
-            /*width: 100%;  Removed:  Let the image dictate the width*/
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
            max-width: 400px;
         }
-        /* Style for smaller screens (mobile-first approach) */
+
       @media (max-width: 768px) {
            .image-container {
-              flex-direction: column; /* Stack images vertically on smaller screens */
+              flex-direction: column;
            }
-            /* Removed max-width rule from here too */
-           /*.image-container img{
-            max-width: 90%;
-           }*/
            .feature{
-                width: auto; /* added for mobile responsiveness*/
-                max-width: none; /* Allow full width on smaller screens*/
+                width: auto;
+                max-width: none;
            }
       }
 
-        #information1 { /*added centering of all section*/
+        #information1 {
           display:flex;
           justify-content: center;
         }
 
-        #about {  /* Center the About section */
+        #about {
             text-align: center;
         }
         #about h2, #about p {
             text-align: center;
-            font-size: 1.2em; /* Further increased from 1.1em to 1.2em  */
+            font-size: 1.2em;
         }
 
-        #information1 h2, #information1 h3{ /*Increase also h2 and h3 font size*/
+        #information1 h2, #information1 h3{
              font-size: 1.1em;
         }
 
-      #hero p { /* increase heros paragraph*/
+      #hero p {
             font-size: 1.1em;
       }
         #hero h1{
-             font-size: 1.2em; /* Increasing font size*/
+             font-size: 1.2em;
         }
         #hero {
             text-align: center; /* Center the entire hero section */
         }
         #hero img {
-            max-width: 50%;  /* Adjust as needed - makes image responsive */
-            height: auto;     /* Maintain aspect ratio */
+            width: 300px; /* Set a fixed width.  Adjust as needed! */
+            height: auto;  /* Maintain aspect ratio */
         }
+        /* Alternative, using max-width and ensuring centering even if window is smaller */
+        /* This approach is generally better */
+        /*
+        #hero img {
+            max-width: 300px;  
+            width: 100%;
+            height: auto;
+        }
+        */
+
 
     </style>
 </head>
@@ -116,7 +117,7 @@
     <section id="about">
         <h2>About Project Luna</h2>
         <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform.
-        <br> <!-- Added line break for your extra text -->
+        <br>
          great for making things as a small hobby or for small profits.
         </p>
     </section>
@@ -139,7 +140,7 @@
     <footer>
         <p>© 2025 Project Fireplace</p>
     </footer>
-    </script>
+
     <script src="../script.js"></script>
 </body>
 </html>
