@@ -31,6 +31,7 @@
             align-items: center; /* Center content horizontally */
             text-align: center; /* Center text */
             margin-bottom: 20px; /* Add some space between feature sections */
+            width: 100%; /* Add width to center properly*/
         }
         /* Style for smaller screens (mobile-first approach) */
       @media (max-width: 768px) {
@@ -41,6 +42,19 @@
             max-width: 90%; /* images in a column make them a bit bigger*/
            }
       }
+
+        #information1 { /*added centering of all section*/
+          display:flex;
+          justify-content: center;
+        }
+
+        #about {  /* Center the About section */
+            text-align: center;
+        }
+        #about h2, #about p {
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
@@ -78,7 +92,7 @@
 
     <section id="information1">
         <h2>Features</h2>
-        <div class="image-container">
+        <div class="image-container">  {/* Wrap the images in a container */}
              <div class="feature">
                  <img src="https://img.icons8.com/fluent/452/roblox-studio.png" alt="Feature 1">
                  <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
