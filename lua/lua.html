@@ -21,8 +21,9 @@
         }
 
         .image-container img {
-            max-width: 45%; /* Make images responsive, adjust as needed */
-            height: auto;   /* Maintain aspect ratio */
+            /* Keep original image sizing - removed max-width and height rules*/
+            /*max-width: 45%;  Removed to keep original size */
+            /*height: auto;    Removed to keep original size */
              /* Optional: Add a maximum height if you want */
         }
        .feature {
@@ -31,15 +32,19 @@
             align-items: center; /* Center content horizontally */
             text-align: center; /* Center text */
             margin-bottom: 20px; /* Add some space between feature sections */
-            width: 100%; /* Add width to center properly*/
+            /*width: 100%;  Removed:  Let the image dictate the width*/
         }
         /* Style for smaller screens (mobile-first approach) */
       @media (max-width: 768px) {
            .image-container {
               flex-direction: column; /* Stack images vertically on smaller screens */
            }
-           .image-container img{
-            max-width: 90%; /* images in a column make them a bit bigger*/
+            /* Removed max-width rule from here too */
+           /*.image-container img{
+            max-width: 90%; 
+           }*/
+           .feature{
+                width: auto; /* added for mobile responsiveness*/
            }
       }
 
@@ -87,12 +92,13 @@
 
     <section id="about">
         <h2>About Project Luna</h2>
-        <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform.</p>
+        <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform</p>
+        <p>great for making things as a small hobby or for small profits.</p>
     </section>
 
     <section id="information1">
         <h2>Features</h2>
-        <div class="image-container">  {/* Wrap the images in a container */}
+        <div class="image-container">
              <div class="feature">
                  <img src="https://img.icons8.com/fluent/452/roblox-studio.png" alt="Feature 1">
                  <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
