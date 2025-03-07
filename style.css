@@ -2,40 +2,42 @@
 
 /* --- Material You Inspired Variables --- */
 :root {
-    /* Light Theme Colors */
-    --md-sys-color-primary: #6750A4;
-    --md-sys-color-on-primary: #FFFFFF;
-    --md-sys-color-primary-container: #E9DDFF;
-    --md-sys-color-on-primary-container: #22005D;
-    --md-sys-color-secondary: #625B71;
-    --md-sys-color-on-secondary: #FFFFFF;
-    --md-sys-color-secondary-container: #E8DEF8;
-    --md-sys-color-on-secondary-container: #1E192B;
-    --md-sys-color-surface: #FFFBFE;
-    --md-sys-color-on-surface: #1C1B1F; /* Text color in light mode */
-    --md-sys-color-surface-variant: #E7E0EC;
-    --md-sys-color-on-surface-variant: #49454E;
-    --md-sys-color-outline: #79747E;
+    /* Light Theme Colors (Orange Theme) */
+    --md-sys-color-primary: #BF3604; /* Darker Orange */
+    --md-sys-color-on-primary: #FFFFFF; /* White */
+    --md-sys-color-primary-container: #FFD9CC; /* Light Orange */
+    --md-sys-color-on-primary-container: #3F0E00; /* Very Dark Orange (almost brown) */
+    --md-sys-color-secondary: #A65F31; /* Medium Orange */
+    --md-sys-color-on-secondary: #FFFFFF; /* White */
+    --md-sys-color-secondary-container: #FFDBC5; /* Light Orange */
+    --md-sys-color-on-secondary-container: #3A1803; /* Dark Brown */
+    --md-sys-color-surface: #FFFBFA; /* Off-white */
+    --md-sys-color-on-surface: #201A18; /* Dark Brown (Text) */
+    --md-sys-color-surface-variant: #FDE8DF; /* Light Peach */
+    --md-sys-color-on-surface-variant: #52443D; /* Brown */
+    --md-sys-color-outline: #85746B; /* Gray-Brown */
     --md-sys-color-shadow: #000000;
-    --md-sys-color-inverse-surface: #313033;
-    --md-sys-color-inverse-on-surface: #F4EFF4;
+    --md-sys-color-inverse-surface: #362F2C; /* Dark Brown */
+    --md-sys-color-inverse-on-surface: #FBEFE9; /* Off-white */
 
-    /* Dark Theme Colors */
-    --md-dark-sys-color-primary: #CBB2FF;
-    --md-dark-sys-color-on-primary: #381E72;
-    --md-dark-sys-color-primary-container: #4F378A;
-    --md-dark-sys-color-on-primary-container: #E9DDFF;
-    --md-dark-sys-color-secondary: #CBC2DB;
-    --md-dark-sys-color-on-secondary: #332D41;
-    --md-dark-sys-color-secondary-container: #4A4458;
-    --md-dark-sys-color-on-secondary-container: #E8DEF8;
-    --md-dark-sys-color-surface: #1C1B1F;
-    --md-dark-sys-color-on-surface: #E6E1E5; /* Text color in dark mode */
-    --md-dark-sys-color-surface-variant: #49454E;
-    --md-dark-sys-color-on-surface-variant: #CAC4CF;
-    --md-dark-sys-color-outline: #948F99;
-    --md-dark-sys-color-inverse-surface: #E9DDFF;
-    --md-dark-sys-color-inverse-on-surface: #313033;
+
+    /* Dark Theme Colors (Orange Theme) */
+    --md-dark-sys-color-primary: #FFB49F; /* Lighter Orange */
+    --md-dark-sys-color-on-primary: #661A00; /* Dark Orange */
+    --md-dark-sys-color-primary-container: #8F2900; /* Darker Orange */
+    --md-dark-sys-color-on-primary-container: #FFD9CC;  /* Light Orange, same as light theme */
+    --md-dark-sys-color-secondary: #FFB997; /* Lighter Orange */
+    --md-dark-sys-color-on-secondary: #5F3011; /* Dark Orange-Brown */
+    --md-dark-sys-color-secondary-container: #87461F; /* Darker Orange-Brown */
+    --md-dark-sys-color-on-secondary-container: #FFDBC5; /* Light Orange, same as light theme */
+    --md-dark-sys-color-surface: #201A18; /* Very Dark Brown */
+    --md-dark-sys-color-on-surface: #EBE0DD; /* Light Beige */
+    --md-dark-sys-color-surface-variant: #52443D;  /* Brown, same as light theme */
+    --md-dark-sys-color-on-surface-variant: #D7C3B9; /* Light Beige */
+    --md-dark-sys-color-outline: #A08D84; /* Gray-Beige */
+    --md-dark-sys-color-inverse-surface: #F5E1D8; /* Light Beige*/
+    --md-dark-sys-color-inverse-on-surface: #352F2D; /*Dark Brown*/
+
 
     /* Spacing */
     --md-sys-spacing-small: 4px;
@@ -48,8 +50,8 @@
     --md-sys-elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);
 
      /* Link Colors for map.html #about section ONLY */
-    --link-color-light: #000000;       /* Black for light mode */
-    --link-color-dark: #FFFFFF;        /* White for dark mode */
+    --link-color-light: #BF3604;       /* Dark Orange for light mode */
+    --link-color-dark: #FFB49F;        /* Light Orange for dark mode */
 }
 
 /* Base Styles (Mobile First) */
@@ -104,6 +106,11 @@ nav {
     margin-bottom: 1rem;
     width: 100%;
     text-align: center;
+    /* Use Firelight or Fireplace, choose one */
+    /* font-family: 'Your Fire-Related Font', cursive;  If you have a specific font */
+}
+.logo::before {
+    content: "Fireplace"; /*  OR  content: "Fireplace"; */
 }
 
 /* Hamburger Menu Styles (Mobile) */
@@ -421,12 +428,12 @@ nav a span.material-icons {
 /* --- map.html Link Styles (in #about section) --- */
 /*  Target links specifically in the #about section of map.html */
 #about a {
-    color: var(--link-color-light); /* Default to black in light mode */
+    color: var(--link-color-light); /* Default to orange in light mode */
     text-decoration: none;  /* Remove underlines */
 }
 
 body.dark-mode #about a {
-    color: var(--link-color-dark); /* White in dark mode */
+    color: var(--link-color-dark); /* Light orange in dark mode */
 }
 
 /* Ensure icons inside the links inherit the link color */
