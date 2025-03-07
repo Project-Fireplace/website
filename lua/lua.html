@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Fireplace</title>
+    <title>Project Fireplace - Project Luna</title>  <!-- Added Project Luna to title -->
     <link rel="stylesheet" href="luna_style.css">
     <!-- Include Material Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <!-- Added Material Icons link -->
+    <style>
         /* Add this CSS to your luna_style.css file, or within a <style> tag in the <head> */
         .image-container {
             display: flex;
@@ -75,13 +77,67 @@
             height: auto;     /*  Maintain aspect ratio */
         }
 
+        /* Style for the new button */
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Example color - choose your own */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px; /* Space below the logo */
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .nav-button:hover {
+            background-color: #0056b3; /* Darker on hover */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        .nav-button .material-icons {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+         /* Mobile adjustments */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-button {
+                width: 80%;
+                margin: 10px; /* Adjust margin as needed */
+            }
+              #nav-links {
+                display: none;  /* Hide by default on mobile */
+                width: 100%;
+                text-align: center;
+            }
+
+            #nav-links.active {
+                display: flex;  /* Show when active class is present */
+                flex-direction: column;
+            }
+
+              #nav-links li {
+                margin: 10px 0; /* Vertical spacing */
+            }
+        }
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Project Fireplace</div>
-            <button id="hamburger-menu" aria-label="Menu">
+             <!-- Button below the logo -->
+            <a href="../index.html" class="nav-button">
+                <span class="material-icons">arrow_back</span>
+                Back to Main Site
+            </a>
+            <button id="hamburger-menu" aria-label="Menu" aria-expanded="false"> <!-- Added aria-expanded -->
                 <span class="material-icons">menu</span>
             </button>
             <ul id="nav-links">
@@ -92,7 +148,7 @@
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons">dark_mode</span>
-                        <span class="darkmode-label">Light Mode</span> <!-- Label, initially set for light mode -->
+                        <span class="darkmode-label">Light Mode</span>
                     </button>
                 </li>
             </ul>
@@ -102,7 +158,6 @@
     <section id="hero">
         <h1>Project Luna</h1>
         <p>Code used for apps and games.</p>
-        <!-- IMPORTANT: Use the URL of your *cropped* image here! -->
     </section>
 
     <section id="about">
