@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* Add this CSS to your luna_style.css file, or within a <style> tag in the <head> */
+        /* Existing styles from your question ... */
         .image-container {
             display: flex;
             justify-content: center;
@@ -21,11 +21,9 @@
             flex-wrap: wrap;
         }
 
-        /*  Use specific class names for the images */
         .roblox-image {
-            height: 200px; /*  Or whatever size you want */
-            width: auto;    /*  Maintain aspect ratio */
-             /* Add more specific styling if needed */
+            height: 200px;
+            width: auto;
         }
 
         .lua-image {
@@ -84,28 +82,6 @@
             height: auto;     /*  Maintain aspect ratio */
         }
 
-        /* Style for the new button */
-        .nav-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 1rem;
-        }
-
-        .nav-button:hover {
-            background-color: #0056b3;
-            cursor: pointer;
-        }
-
-        .nav-button .material-icons {
-            margin-right: 5px;
-            vertical-align: middle;
-        }
 
          /* Mobile adjustments */
         @media (max-width: 768px) {
@@ -113,10 +89,7 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .nav-button {
-                width: 80%;
-                margin: 10px;
-            }
+
               #nav-links {
                 display: none;
                 width: 100%;
@@ -133,17 +106,40 @@
             }
         }
 
+        /* --- Button Styles --- */
+        .footer-button-container {
+            text-align: center; /* Center the button horizontally */
+            margin-bottom: 20px; /* Space above the footer */
+        }
+
+        .footer-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Example color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+             /* Add a transition for a smooth hover effect */
+             transition: background-color 0.3s ease;
+        }
+
+        .footer-button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+        .footer-button .material-icons {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+
     </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Project Fireplace</div>
-             <!-- Button below the logo -->
-            <a href="../index.html" class="nav-button">
-                <span class="material-icons">arrow_back</span>
-                Back to Main Site
-            </a>
             <button id="hamburger-menu" aria-label="Menu" aria-expanded="false">
                 <span class="material-icons">menu</span>
             </button>
@@ -179,18 +175,24 @@
         <h2>Features</h2>
         <div class="image-container">
              <div class="feature">
-                <!-- Use a data URL for the cropped Roblox image -->
-                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAQAAAACj/55PAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVh1Y2boUFBBexF2LiqWIWoroURG0U/h4/UkVkhIr+E//Iu/7t3dmd57W9u28S4q4YNYwNgxkWLTYyIczI5iTf95vHT/8/nJ0M+MzU5Mz5lFRnOMZDKY2hI1P//v/x86X65y+y9zujZF5BGAoY3gTfAeE+7b/284bL448AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAddEVYdFNvZnR3YXJlAEdNUEhvbWVQYWdl2yIHAAABoUlEQVR42u3dvW7jMBRA0f//h/xMDNI0D/pQ2w86wQYt/X108Mh+gWEYhmaM00wkk8lkMplMJpPJZDKZTCaTyWQyGWOkk30b+/p/5l3hW+wN0m4t/4w7/u1+WnU5x/pG2hE0s+0H+k3W78M2mXqf9Q20Jmk/V//6N9wT6UjS/6r/0faETR3UeK/5/3wvp/9N+8xK8x89f38c+0Amk/1///Q36T/4j7c8+s+V1/m+L9mB9q/Nn3b33s7P/l+Tf+8vE+/+R3/T//0fK+V38X/1vP/n+B5/7d/97L/3763z/27///L7z9XgMlkMplMJpPJZDKZTCaTyWQymczvlwFjK4Ywwc0KAAAAAElFTkSuQmCC" alt="Roblox Studio Logo" class="roblox-image">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAQAAAACj/55PAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVh1Y2boUFBBexF2LiqWIWoroURG0U/h4/UkVkhIr+E//Iu/7t3dmd57W9u28S4q4YNYwNgxkWLTYyIczI5iTf95vHT/8/nJ0M+MzU5Mz5lFRnOMZDKY2hI1P//v/x86X65y+y9zujZF5BGAoY3gTfAeE+7b/284bL448AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAddEVYdFNvZnR3YXJlAEdNUEhvbWVQYWdl2yIHAAABoUlEQVR42u3dvW7jMBRA0f//h/xMDNI0D/pQ2w86wQYt/X108Mh+gWEYhmaM00wkk8lkMplMJpPJZDKZTCaTyWQyGWOkk30b+/p/5l3hW+wN0m4t/4w7/u1+WnU5x/pG2hE0s+0H+k3W78M2mXqf9Q20Jmk/V//6N9wT6UjS/6r/0faETR3UeK/5/3wvp/9N+8xK8x89f38c+0Amk/1///Q36T/4j7c8+s+V1/m+L9mB9q/Nn3b33s7P/l+Tf+8vE+/+R3/T//0fK+V38X/1vP/n+B5/7d/97L/3763z/27///L7z9XgMlkMplMJpPJZDKZTCaTyWQymczvlwFjK4Ywwc0KAAAAAElFTkSuQmCC" alt="Roblox Studio Logo" class="roblox-image">
                  <h3>roblox studio is used for easy game development with lots of kits to get you started</h3>
               </div>
 
              <div class="feature">
-                <!-- Use a data URL for the cropped Lua image -->
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAQAAAACj/55PAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9TpSIVh1Y2boUFBBexF2LiqWIWoroURG0U/h4/UkVkhIr+E//Iu/7t3dmd57W9u28S4q4YNYwNgxkWLTYyIczI5iTf95vHT/8/nJ0M+MzU5Mz5lFRnOMZDKY2hI1P//v/x86X65y+y9zujZF5BGAoY3gTfAeE+7b/284bL448AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAddEVYdFNvZnR3YXJlAEdNUEhvbWVQYWdl2yIHAAABsUlEQVR42u3cQQ7CMAwAwP7/0+5JDdI2gqODg0y+p4h9BAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAAAECBAgQIECAwE7xAqFwJp28F6cAAAAASUVORK5CYII=" alt="Lua Logo" class="lua-image">
                 <h3>Lua is the language you have to learn to be able to code on roblox studio</h3>
             </div>
          </div>
        </section>
+
+    <!-- Container for the button, placed *above* the footer -->
+    <div class="footer-button-container">
+        <a href="YOUR_LINK_HERE" class="footer-button">  <!-- Replace YOUR_LINK_HERE -->
+            <span class="material-icons">open_in_new</span>
+            Go to External Page
+        </a>
+    </div>
 
     <footer>
         <p>© 2025 Project Fireplace</p>
