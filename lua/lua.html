@@ -4,233 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Project Luna</title>
-    <link rel="stylesheet" href="luna_style.css">  <!-- Make sure this path is correct! -->
+    <link rel="stylesheet" href="luna_style.css">
     <!-- Include Material Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
-        /* --- Reset (Highly Recommended) --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Nunito', sans-serif; /* Consistent font */
-            line-height: 1.6;
-            color: #333; /* Default text color */
-            background-color: #1a1a1a; /* Dark background */
-            color: #fff; /* White text */
-        }
-
-        header {
-            background-color: #333; /* Darker header */
-            padding: 20px;
-            border-bottom: 1px solid #444;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; /* Important for responsiveness */
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff; /* White text for logo */
-        }
-
-        #hamburger-menu {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none; /* Hide by default on larger screens */
-            color: #fff; /* White icon */
-        }
-
-        #nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center; /* Vertical alignment */
-        }
-
-        #nav-links li {
-            margin-left: 20px;
-        }
-
-        #nav-links a {
-            text-decoration: none;
-            color: #fff; /* White text for links */
-            display: flex; /* Align icon and text */
-            align-items: center;
-            padding: 8px 12px; /* Add padding for better click targets */
-        }
-
-        #nav-links a:hover {
-            text-decoration: underline;
-            background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
-        }
-
-        #nav-links .material-icons {
-            margin-right: 5px;
-            color: #fff; /* White icons */
-        }
-
-        #darkmode-toggle {
-            background: none;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            color: #fff; /* White text and icon */
-        }
-        #darkmode-toggle .material-icons {
-           margin-right: 5px;
-        }
-        #darkmode-toggle:hover {
-           transform: scale(1.1);
-        }
-
-        #hero {
-            text-align: center;
-            padding: 50px 20px;
-            /* Consider adding a background color or image */
-        }
-
-        #hero h1 {
-            font-size: 2rem;  /* Larger heading */
-            margin-bottom: 10px;
-            color: #fff; /* White heading */
-        }
-
-        #hero p {
-            font-size: 1.2rem;
-            color: #ccc; /* Slightly lighter text */
-        }
-
-        #about {
-            text-align: center;
-            padding: 40px 20px; /* Add padding */
-        }
-
-        #about h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #fff; /* White heading */
-        }
-
-        #about p {
-            font-size: 1.1rem;
-            color: #ccc;
-            max-width: 800px; /* Limit paragraph width for readability */
-            margin: 0 auto;  /* Center the paragraph */
-        }
-
-
-        #information1 {
-            display: flex;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-
-        #information1 h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-align: center; /* Ensure heading is centered */
-            width: 100%;      /* Occupy full width */
-            color: #fff; /* White heading */
-        }
-
-
+        /* Existing styles from your question ... */
         .image-container {
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align items to the top */
-            gap: 40px;           /* Increased gap */
+            align-items: center;
+            gap: 20px;
             width: 100%;
-            flex-wrap: wrap;     /* Wrap on smaller screens */
+            flex-wrap: wrap;
         }
 
-        .feature {
+        .roblox-image {
+            height: 200px;
+            width: auto;
+        }
+
+        .lua-image {
+            height: 200px;
+            width: auto;
+        }
+
+       .feature {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            max-width: 300px;  /* Control width */
-            background-color: #333; /* Dark background */
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Subtle shadow */
+            margin-bottom: 20px;
+           max-width: 400px;
         }
 
-        .roblox-image, .lua-image {
-            height: 100px; /* Reduced height for better proportions */
-            width: auto;
-            margin-bottom: 15px; /* Space below the image */
+      @media (max-width: 768px) {
+           .image-container {
+              flex-direction: column;
+           }
+           .feature{
+                width: auto;
+                max-width: none;
+           }
+      }
+
+        #information1 {
+          display:flex;
+          justify-content: center;
         }
 
-        .feature h3 {
-            font-size: 1.1rem;
-            color: #fff; /* White text */
-            margin-bottom: 10px;
-        }
-          /* --- Button Styles (Moved and Improved) --- */
-        .footer-button-container {
+        #about {
             text-align: center;
-            margin-bottom: 0px; /* Reduced the bottom margin*/
-            padding-top: 10px;
-
         }
-
-        .footer-button {
-            display: inline-block;
-            padding: 12px 24px; /* Larger padding */
-            background-color: #28a745; /* Green button */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-            border: none; /* Remove default border */
-        }
-         .footer-button:hover {
-            background-color: #218838; /* Darker green on hover */
-            cursor: pointer;
-        }
-        .footer-button .material-icons{
-             margin-right: 5px;
-            vertical-align: middle;
-        }
-
-        footer {
+        #about h2, #about p {
             text-align: center;
-            padding: 20px;
-            background-color: #222; /* Darker footer */
-            color: #fff;
-            margin-top: 0px; /*Remove space above footer*/
+            font-size: 1.2em;
+        }
 
+        #information1 h2, #information1 h3{
+             font-size: 1.1em;
+        }
+
+      #hero p {
+            font-size: 1.1em;
+      }
+        #hero h1{
+             font-size: 1.2em;
+        }
+        #hero {
+            text-align: center; /* Center the entire hero section */
+        }
+        #hero img {
+            max-width: 300px; /*  Responsive, maximum width */
+            width: 100%;      /*  Occupy full width of container, up to max-width */
+            height: auto;     /*  Maintain aspect ratio */
         }
 
 
-        /* --- Mobile Styles (Improved) --- */
+         /* Mobile adjustments */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 align-items: center;
             }
 
-            #nav-links {
-                display: none;  /* Hide by default */
+              #nav-links {
+                display: none;
                 width: 100%;
                 text-align: center;
-                margin-top: 10px; /* Space below hamburger */
             }
 
             #nav-links.active {
@@ -238,24 +101,36 @@
                 flex-direction: column;
             }
 
-            #nav-links li {
+              #nav-links li {
                 margin: 10px 0;
             }
+        }
 
-            .image-container {
-                flex-direction: column; /* Stack images vertically */
-            }
+        /* --- Button Styles --- */
+        .footer-button-container {
+            text-align: center; /* Center the button horizontally */
+            margin-bottom: 20px; /* Space above the footer */
+        }
 
-            .feature {
-                width: 90%; /* Wider on mobile */
-            }
-               .footer-button-container {
-                margin-bottom: 10px;
-            }
-              footer {
-                margin-top: 10px; /* Add some space above the footer on mobile*/
+        .footer-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Example color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1rem;
+             /* Add a transition for a smooth hover effect */
+             transition: background-color 0.3s ease;
+        }
 
-            }
+        .footer-button:hover {
+            background-color: #0056b3;
+            cursor: pointer;
+        }
+        .footer-button .material-icons {
+            margin-right: 5px;
+            vertical-align: middle;
         }
 
 
@@ -309,7 +184,7 @@
                 <h3>Lua is the language you have to learn to be able to code on roblox studio</h3>
             </div>
          </div>
-    </section>
+       </section>
 
     <!-- Container for the button, placed *above* the footer -->
     <div class="footer-button-container">
@@ -323,48 +198,6 @@
         <p>© 2025 Project Fireplace</p>
     </footer>
 
-    <script>
-        const hamburgerMenu = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
-        const darkModeToggle = document.getElementById('darkmode-toggle');
-        const darkModeLabel = document.querySelector('.darkmode-label');
-
-        // Hamburger Menu Toggle
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
-
-        // Dark Mode Toggle (with localStorage)
-        let darkMode = localStorage.getItem('darkMode');
-
-        const enableDarkMode = () => {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
-            darkModeLabel.textContent = 'Dark Mode';
-        };
-
-        const disableDarkMode = () => {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', null);
-            darkModeToggle.querySelector('.material-icons').textContent = 'dark_mode';
-            darkModeLabel.textContent = 'Light Mode';
-        };
-
-        if (darkMode === 'enabled') {
-            enableDarkMode();
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            darkMode = localStorage.getItem('darkMode'); // Get current value
-            if (darkMode !== 'enabled') {
-                enableDarkMode();
-            } else {
-                disableDarkMode();
-            }
-        });
-
-    </script>
+    <script src="../script.js"></script>
 </body>
 </html>
