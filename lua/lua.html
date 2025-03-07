@@ -25,6 +25,8 @@
             /*max-width: 45%;  Removed to keep original size */
             /*height: auto;    Removed to keep original size */
              /* Optional: Add a maximum height if you want */
+            height: 200px; /* Set a fixed height for both images. Adjust as needed! */
+            width: auto;  /* Let width adjust automatically to maintain aspect ratio */
         }
        .feature {
             display: flex; /*lets do this one with flex to*/
@@ -33,6 +35,7 @@
             text-align: center; /* Center text */
             margin-bottom: 20px; /* Add some space between feature sections */
             /*width: 100%;  Removed:  Let the image dictate the width*/
+           max-width: 400px;
         }
         /* Style for smaller screens (mobile-first approach) */
       @media (max-width: 768px) {
@@ -41,10 +44,11 @@
            }
             /* Removed max-width rule from here too */
            /*.image-container img{
-            max-width: 90%; 
+            max-width: 90%;
            }*/
            .feature{
                 width: auto; /* added for mobile responsiveness*/
+                max-width: none; /* Allow full width on smaller screens*/
            }
       }
 
@@ -58,7 +62,17 @@
         }
         #about h2, #about p {
             text-align: center;
+            font-size: 1.1em; /* Increased font size by 2 pixels (relative units) */
         }
+
+        #information1 h2, #information1 h3{ /*Increase also h2 and h3 font size*/
+             font-size: 1.1em;
+        }
+
+      #hero p { /* increase heros paragraph*/
+            font-size: 1.1em;
+      }
+
 
     </style>
 </head>
@@ -92,8 +106,10 @@
 
     <section id="about">
         <h2>About Project Luna</h2>
-        <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform</p>
-        <p>great for making things as a small hobby or for small profits.</p>
+        <p>This project is about providing tutorials and resources to lua and mainly game development on roblox studio a free platform.
+        <br> <!-- Added line break for your extra text -->
+         great for making things as a small hobby or for small profits.
+        </p>
     </section>
 
     <section id="information1">
