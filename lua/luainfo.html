@@ -3,168 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Fireplace</title>
+    <title>Project Fireplace - Lua Info</title>
     <link rel="stylesheet" href="luna_style.css">
-    <!-- Include Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- Reset (Highly Recommended) --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Nunito', sans-serif;
-            line-height: 1.6;
-            color: #fff;  /* White text */
-            background-color: #1a1a1a; /* Dark background */
-        }
-
-        header {
-            background-color: #333;
-            padding: 20px;
-            border-bottom: 1px solid #444;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        #hamburger-menu {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none; /* Hidden on larger screens */
-            color: #fff;
-        }
-
-        #nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-
-        #nav-links li {
-            margin-left: 20px;
-        }
-
-        #nav-links a {
-            text-decoration: none;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 8px 12px;
-        }
-
-        #nav-links a:hover {
-            text-decoration: underline;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-         #nav-links .material-icons {
-             margin-right: 5px;
-             color: #fff; /* White icons */
-         }
-
-        #darkmode-toggle {
-            background: none;
-            border: none;
-            font-size: 1rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            color: #fff;
-        }
-
-        #darkmode-toggle .material-icons{
-          margin-right: 5px;
-        }
-        #darkmode-toggle:hover {
-           transform: scale(1.1);
-        }
-
-
-        /* --- Main Content Styles --- */
-        .main-content {
-            padding: 40px 20px;
-            max-width: 800px; /* Limit width for readability */
-            margin: 0 auto;  /* Center content */
-        }
-
-        .main-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .main-content p {
-            font-size: 1.1rem;
-            color: #ccc;
-            margin-bottom: 15px; /* Space between paragraphs */
-        }
-
-        /* --- Mobile Styles --- */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #nav-links {
-                display: none; /* Hide by default */
-                width: 100%;
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            #nav-links.active {
-                display: flex;
-                flex-direction: column;
-            }
-
-            #nav-links li {
-                margin: 10px 0;
-            }
-
-            .main-content {
-                padding: 20px; /* Less padding on mobile */
-            }
-        }
-         footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #222;
-            color: #fff;
-        }
-
-    </style>
+    <!--  Include YOUR JavaScript files here -->
+    <script src="../script.js" defer></script>
+    <!-- Use 'defer' to ensure the scripts run after the HTML is parsed -->
 </head>
-<body>
+<body>  <!--  Let your darkmode.js add/remove the 'dark-mode' class -->
     <header>
         <nav>
-            <img scr="https://static.jojowiki.com/images/7/73/latest/20191015215955/Lua-logo.png" alt="Project Luna"
-            <button id="hamburger-menu" aria-label="Menu" aria-expanded="false">
+            <!-- Corrected image src and alt text -->
+            <img src="https://via.placeholder.com/150/6750A4/FFFFFF?text=Lua+Logo" alt="Lua Logo" class="logo">
+
+            <!--  Hamburger menu (your hamburger.js will handle this) -->
+            <button id="hamburger-menu" aria-label="Menu">
                 <span class="material-icons">menu</span>
             </button>
-            <ul id="nav-links">
-              <li><a href="../index.html#home"><span class="material-icons">home</span>Home</a></li>  <!--Adjust paths-->
-              <li><a href="../index.html#features"><span class="material-icons">settings</span>Features</a></li>
-              <li><a href="../index.html#gallery"><span class="material-icons">photo_library</span>Gallery</a></li>
-              <li><a href="../contact/contact.html"><span class="material-icons">contact_mail</span>Contact</a></li>
+
+            <ul id="nav-links">  <!--  Your hamburger.js will add/remove the 'open' class -->
+                <li><a href="index.html#home"><span class="material-icons">home</span>Home</a></li>
+              <li><a href="index.html#features"><span class="material-icons">settings</span>Features</a></li>
+              <li><a href="index.html#gallery"><span class="material-icons">photo_library</span>Gallery</a></li>
+              <li><a href="contact/contact.html"><span class="material-icons">contact_mail</span>Contact</a></li>
                 <li>
+                    <!-- Dark mode toggle (your darkmode.js will handle this) -->
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons">dark_mode</span>
                         <span class="darkmode-label">Light Mode</span>
@@ -175,60 +40,33 @@
     </header>
 
     <main class="main-content">
-        <h1>What is Lua?</h1> <!-- CHANGE THIS -->
+        <h1>What is Lua?</h1>
         <p>
-            Lua is a coding language which orignates from rio de janeiro in brazil created by by Roberto Ierusalimschy, Luiz Henrique de Figueiredo and Waldemar Celes in 1993 while they were part of the Computer Graphics Technology Group at a church, today this code is used by thousands of professionals everyday on services like roblox studio and many more.
+            Lua is a coding language which originates from Rio de Janeiro in Brazil, created by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, and Waldemar Celes in 1993 while they were part of the Computer Graphics Technology Group at a church.  Today, this code is used by thousands of professionals every day on services like Roblox Studio and many more.
         </p>
 
-        <!-- Add more content here -->
+        <h2>Key Features of Lua</h2>
+        <ul>
+          <li>Lightweight and embeddable</li>
+          <li>Fast execution speed</li>
+          <li>Easy to learn and use</li>
+          <li>Extensible with C/C++</li>
+          <li>Used in game development, scripting, and more</li>
+        </ul>
+
+        <h2>Example Lua Code</h2>
+        <pre><code>
+-- Simple Lua function
+function greet(name)
+  print("Hello, " .. name .. "!")
+end
+
+greet("World")  -- Output: Hello, World!
+        </code></pre>
     </main>
-     <footer>
+
+    <footer>
         <p>© 2025 Project Fireplace</p>
     </footer>
-      <script>
-        const hamburgerMenu = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
-        const darkModeToggle = document.getElementById('darkmode-toggle');
-        const darkModeLabel = document.querySelector('.darkmode-label');
-
-
-        // Hamburger Menu Toggle
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerMenu.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
-
-        // Dark Mode Toggle (with localStorage)
-        let darkMode = localStorage.getItem('darkMode');
-
-        const enableDarkMode = () => {
-            document.body.classList.add('dark-mode');
-            localStorage.setItem('darkMode', 'enabled');
-            darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
-            darkModeLabel.textContent = 'Dark Mode';
-              // Add any other dark mode style changes here, if needed
-        };
-
-        const disableDarkMode = () => {
-            document.body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode', null);
-            darkModeToggle.querySelector('.material-icons').textContent = 'dark_mode';
-            darkModeLabel.textContent = 'Light Mode';
-             // Add any other light mode style changes here, if needed
-        };
-
-        if (darkMode === 'enabled') {
-            enableDarkMode();
-        }
-
-        darkModeToggle.addEventListener('click', () => {
-            darkMode = localStorage.getItem('darkMode'); // Get current value
-            if (darkMode !== 'enabled') {
-                enableDarkMode();
-            } else {
-                disableDarkMode();
-            }
-        });
-     </script>
 </body>
 </html>
