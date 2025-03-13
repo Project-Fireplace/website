@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Google Sign-In</title>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+
+<button id="googleSignInButton">Sign in with Google</button>
+
+<script>
+  // Your Firebase configuration (replace with your actual config)
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    // ... other config values
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+  document.getElementById('googleSignInButton').addEventListener('click', () => {
+    auth.signInWithPopup(googleProvider)
+      .then((result) => {
+        // This gives you the user's information (email, etc.)
+        const user = result.user;
+        console.log("Signed in user:", user);
+
+        // **Crucial step: Send user ID to backend for authorization**
+        fetch('/authorize', { // Replace '/authorize' with your backend endpoint
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ uid: user.uid })
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.authorized) {
+            // User is authorized, show the protected content
+            console.log("Access granted!");
+            document.body.innerHTML += "<p>Welcome, authorized user!</p>";
+          } else {
+            // User is not authorized, show an error message or redirect
+            console.log("Access denied!");
+            document.body.innerHTML += "<p>Access denied.  You are not authorized.</p>";
+            auth.signOut(); // Sign out the unauthorized user
+          }
+        })
+        .catch(error => {
+          console.error("Authorization error:", error);
+        });
+
+      })
+      .catch((error) => {
+        console.error("Sign-in error:", error);
+      });
+  });
+</script>
+
+</body>
+</html>
