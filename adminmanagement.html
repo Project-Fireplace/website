@@ -27,16 +27,17 @@ body {
 }
 
 .image-box {
-  flex: 1;
+  /*  Removed flex: 1;  so that the boxes are only as wide as their content */
   margin: 10px;
   border: 2px solid #ccc;
   padding: 10px;
   transition: border 0.3s ease, transform 0.3s ease;
   text-align: center; /* Center text within image boxes */
+  width: 300px; /* Set a fixed width for the boxes */
 }
 
 .image-box img {
-  max-width: 100%;
+  max-width: 100%; /* Ensure images fit within the box */
   height: auto;
 }
 
@@ -53,6 +54,10 @@ body {
 #content.show {
   display: block; /* Show content after successful login */
 }
+
+.text-box{
+    /*No need for aditional styling as it inherits from the image-box*/
+}
 </style>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -64,13 +69,20 @@ body {
 
 <div id="content">
   <div class="image-container">
+    <!-- Group 1 -->
     <div class="image-box">
       <img src="image1.jpg" alt="Image 1">
-      <p>Image 1 Text</p>
+       <div class="text-box">
+           <p>Image 1 Text</p>
+       </div>
     </div>
+
+    <!-- Group 2 -->
     <div class="image-box">
       <img src="image2.jpg" alt="Image 2">
-      <p>Image 2 Text</p>
+      <div class="text-box">
+          <p>Image 2 Text</p>
+      </div>
     </div>
   </div>
 </div>
