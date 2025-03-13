@@ -6,8 +6,10 @@
 body {
   font-family: sans-serif;
 }
+
+/* Styling for the buttons */
 #homeButton, #googleSignInButton {
-  background-color: #4CAF50;
+  background-color: #FF4500; /* Fiery Orange */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -17,7 +19,22 @@ body {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth background color change */
 }
+
+#homeButton:hover, #googleSignInButton:hover {
+    background-color: #FF6347; /* Slightly lighter orange on hover */
+}
+
+/* Positioning the buttons */
+#buttonContainer {
+  display: flex;
+  justify-content: space-between; /* Home button on right, Sign-in on left */
+  width: 100%;
+  padding: 10px;
+}
+
 
 .image-container {
   display: flex;
@@ -64,8 +81,10 @@ body {
 </head>
 <body>
 
-<button id="homeButton">Home</button>
-<button id="googleSignInButton">Sign in with Google</button>
+<div id="buttonContainer">
+    <button id="googleSignInButton">Sign in with Google</button>
+    <button id="homeButton">Home</button>
+</div>
 
 <div id="content">
   <div class="image-container">
