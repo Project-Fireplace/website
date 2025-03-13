@@ -2,12 +2,78 @@
 <html>
 <head>
 <title>Google Sign-In</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+#homeButton, #googleSignInButton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.image-container {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: center; /* Center horizontally */
+}
+
+.image-box {
+  flex: 1;
+  margin: 10px;
+  border: 2px solid #ccc;
+  padding: 10px;
+  transition: border 0.3s ease, transform 0.3s ease;
+  text-align: center; /* Center text within image boxes */
+}
+
+.image-box img {
+  max-width: 100%;
+  height: auto;
+}
+
+.image-box:hover {
+  border-width: 4px;
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+}
+
+#content {
+  display: none; /* Hide content initially */
+}
+
+#content.show {
+  display: block; /* Show content after successful login */
+}
+</style>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
+<button id="homeButton">Home</button>
 <button id="googleSignInButton">Sign in with Google</button>
+
+<div id="content">
+  <div class="image-container">
+    <div class="image-box">
+      <img src="image1.jpg" alt="Image 1">
+      <p>Image 1 Text</p>
+    </div>
+    <div class="image-box">
+      <img src="image2.jpg" alt="Image 2">
+      <p>Image 2 Text</p>
+    </div>
+  </div>
+</div>
 
 <script>
   // Your Firebase configuration (replace with your actual config)
@@ -21,46 +87,44 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const auth = firebase.auth();
-
   const googleProvider = new firebase.auth.GoogleAuthProvider();
+  const contentDiv = document.getElementById('content');
 
   document.getElementById('googleSignInButton').addEventListener('click', () => {
     auth.signInWithPopup(googleProvider)
       .then((result) => {
-        // This gives you the user's information (email, etc.)
         const user = result.user;
         console.log("Signed in user:", user);
 
-        // **Crucial step: Send user ID to backend for authorization**
-        fetch('/authorize', { // Replace '/authorize' with your backend endpoint
+        // Placeholder backend authorization (REPLACE THIS with your actual backend call)
+        fetch('/authorize', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ uid: user.uid })
         })
         .then(response => response.json())
         .then(data => {
           if (data.authorized) {
-            // User is authorized, show the protected content
-            console.log("Access granted!");
-            document.body.innerHTML += "<p>Welcome, authorized user!</p>";
+            contentDiv.classList.add('show');
           } else {
-            // User is not authorized, show an error message or redirect
-            console.log("Access denied!");
-            document.body.innerHTML += "<p>Access denied.  You are not authorized.</p>";
-            auth.signOut(); // Sign out the unauthorized user
+            alert("Access denied.");
+            auth.signOut();
           }
         })
-        .catch(error => {
-          console.error("Authorization error:", error);
-        });
-
+        .catch(error => console.error("Authorization error:", error));
       })
       .catch((error) => {
         console.error("Sign-in error:", error);
       });
   });
+
+  // Home button (example - replace with your actual navigation logic)
+  document.getElementById('homeButton').addEventListener('click', () => {
+      console.log("Home button clicked!");
+      // Add your home page navigation logic here
+      // Example: window.location.href = "/";
+  });
+
 </script>
 
 </body>
