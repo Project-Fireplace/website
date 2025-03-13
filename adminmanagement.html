@@ -76,8 +76,6 @@ body {
     /*No need for aditional styling as it inherits from the image-box*/
 }
 </style>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 </head>
 <body>
 
@@ -120,6 +118,7 @@ body {
   const auth = firebase.auth();
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   const contentDiv = document.getElementById('content');
+  const allowedEmail = "ben.j.steels@gmail.com"; // The only allowed email
 
   document.getElementById('googleSignInButton').addEventListener('click', () => {
     auth.signInWithPopup(googleProvider)
@@ -127,22 +126,16 @@ body {
         const user = result.user;
         console.log("Signed in user:", user);
 
-        // Placeholder backend authorization (REPLACE THIS with your actual backend call)
-        fetch('/authorize', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ uid: user.uid })
-        })
-        .then(response => response.json())
-        .then(data => {
-          if (data.authorized) {
+        // Check email directly on the client-side
+        if (user.email === allowedEmail) {
             contentDiv.classList.add('show');
-          } else {
-            alert("Access denied.");
-            auth.signOut();
-          }
-        })
-        .catch(error => console.error("Authorization error:", error));
+        } else {
+            alert("Access denied. Only ben.j.steels@gmail.com is allowed.");
+            auth.signOut(); // Sign out the unauthorized user
+        }
+
+        // Remove the backend authorization fetch call
+
       })
       .catch((error) => {
         console.error("Sign-in error:", error);
