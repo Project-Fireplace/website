@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Lua Info</title>
-    <link rel="stylesheet" href="luna_style.css">
+    <!--  I'm assuming a folder structure where 'lua' is a subdirectory of the root,
+          and 'script.js' is in the root.  ADJUST THESE PATHS IF NECESSARY. -->
+    <link rel="stylesheet" href="/lua/luna_style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!--  Include YOUR JavaScript files here -->
-    <script src="../script.js" defer></script>
+    <script src="/script.js" defer></script>
     <!-- Use 'defer' to ensure the scripts run after the HTML is parsed -->
+    <style>
+        /*  Inline CSS for sr-only.  Best practice is to put this in luna_style.css,
+            but this makes it self-contained for copy/paste. */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
 </head>
-<body>  <!--  Let your darkmode.js add/remove the 'dark-mode' class -->
+<body>
     <header>
         <nav>
-
-            <!--  Hamburger menu (your hamburger.js will handle this) -->
-            <button id="hamburger-menu" aria-label="Menu">
-                <span class="material-icons">menu</span>
+            <!--  Hamburger menu -->
+            <button id="hamburger-menu" aria-label="Open Menu">
+                <span class="material-icons" aria-hidden="true">menu</span>
+                <span class="sr-only">Open Menu</span>  <!-- For screen readers -->
             </button>
 
-            <ul id="nav-links">  <!--  Your hamburger.js will add/remove the 'open' class -->
-                <li><a href="../index.html#home"><span class="material-icons" aria-hidden="true">home</span>Home</a></li>
-              <li><a href="../index.html#features"><span class="material-icons" aria-hidden="true">settings</span>Features</a></li>
-              <li><a href="../index.html#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>Gallery</a></li>
-              <li><a href="../contact/contact.html"><span class="material-icons" aria-hidden="true">contact_mail</span>Contact</a></li>
+            <ul id="nav-links">
+                <!--  ADJUST THESE PATHS IF NECESSARY. -->
+                <li><a href="/index.html#home"><span class="material-icons" aria-hidden="true">home</span>Home</a></li>
+                <li><a href="/index.html#features"><span class="material-icons" aria-hidden="true">settings</span>Features</a></li>
+                <li><a href="/index.html#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>Gallery</a></li>
+                <li><a href="/contact/contact.html"><span class="material-icons" aria-hidden="true">contact_mail</span>Contact</a></li>
                 <li>
-                    <!-- Dark mode toggle (your darkmode.js will handle this) -->
+                    <!-- Dark mode toggle -->
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
-                        <span class="material-icons">dark_mode</span>
+                        <span class="material-icons" aria-hidden="true">dark_mode</span>
                         <span class="darkmode-label">Light Mode</span>
                     </button>
                 </li>
@@ -37,34 +54,43 @@
         </nav>
     </header>
 
-    <main class="main-content">
+    <main>
         <h1>What is Lua?</h1>
         <p>
-            Lua is a coding language which originates from Rio de Janeiro in Brazil, created by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, and Waldemar Celes in 1993 while they were part of the Computer Graphics Technology Group at a church.  Today, this code is used by thousands of professionals every day on services like Roblox Studio and many more.
+            Lua is a coding language which originates from Rio de Janeiro in Brazil, created by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, and Waldemar Celes in 1993 while they were part of the Computer Graphics Technology Group at a church. Today, this code is used by thousands of professionals every day on services like Roblox Studio and many more.
         </p>
 
-        <h2>Key Features of Lua</h2>
-        <ul>
-          <li>Lightweight and embeddable</li>
-          <li>Fast execution speed</li>
-          <li>Easy to learn and use</li>
-          <li>Extensible with C/C++</li>
-          <li>Used in game development, scripting, and more</li>
-        </ul>
+        <section>
+            <h2>Key Features of Lua</h2>
+            <ul>
+                <li>Lightweight and embeddable</li>
+                <li>Fast execution speed</li>
+                <li>Easy to learn and use</li>
+                <li>Extensible with C/C++</li>
+                <li>Used in game development, scripting, and more</li>
+            </ul>
+        </section>
 
-        <h2>Example Lua Code</h2>
-        <pre><code>
+        <section>
+            <h2>Example Lua Code</h2>
+            <pre><code>
 -- Simple Lua function
-function greet(name)
-  print("Hello, " .. name .. "!")
-end
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
 
-greet("World")  -- Output: Hello, World!
-        </code></pre>
+greet("World");  // Output: Hello, World!
+            </code></pre>
+        </section>
     </main>
 
     <footer>
-        <p>© 2025 Project Fireplace</p>
+        <p>© <span id="current-year"></span> Project Fireplace</p>
     </footer>
+    <script>
+      // Put the copyright year script *before* your other script, or combine them.
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+
 </body>
 </html>
