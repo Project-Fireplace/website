@@ -24,30 +24,47 @@
 
         body.dark-mode nav {
             background-color: #222;
-        }
-        body.dark-mode #nav-links li a, body.dark-mode .logo {
-            color: #fff;
+            color: white;
         }
 
-        /* Original Orange Theme Colors */
+        body.dark-mode #nav-links li a,
+        body.dark-mode .logo,
+        body.dark-mode #hamburger-menu,
+        body.dark-mode footer {
+            color: white;
+        }
+         body.dark-mode #nav-links {
+                background-color: #222;
+            }
+
+        body.dark-mode .admin-button {
+            background-color: #7d3f0c;
+        }
+
+        body.dark-mode .admin-button:hover {
+            background-color: #5a2d08;
+        }
+        body.dark-mode #darkmode-toggle .material-icons{
+            color:white;
+        }
+
+
+        /* Darker Orange Theme */
         nav {
-            background-color: #FFA500; /* Orange */
+            background-color: #cc5500;
             padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            color: white; /*  Make text white for contrast */
+            color: white;
         }
 
         #nav-links li a {
-            color: white; /* White text for links in the nav */
-        }
-       body.dark-mode #nav-links li a, body.dark-mode .logo {
-            color: #fff;  /* Consistent white in dark mode */
+            color: white;
         }
 
         .admin-button {
-            background-color: #e67e22; /* Orange */
+            background-color: #cc5500;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -58,15 +75,10 @@
         }
 
         .admin-button:hover {
-            background-color: #d35400; /* Darker orange */
+            background-color: #993300;
         }
 
-         body.dark-mode .admin-button {
-          background-color: #a55612; /* Darker Orange*/
-        }
-        body.dark-mode .admin-button:hover {
-          background-color: #7d3f0c;
-        }
+
 
         #nav-links {
             list-style: none;
@@ -76,13 +88,7 @@
             padding: 0;
         }
 
-        #nav-links li a {
-            text-decoration: none;
-            /* color: #333;  Removed - now white from nav styles */
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+
 
         #hamburger-menu {
             display: none;
@@ -90,11 +96,9 @@
             border: none;
             cursor: pointer;
             font-size: 24px;
-            color: white; /* Make hamburger icon white */
+            color: white;
         }
-            body.dark-mode #hamburger-menu {
-                color: #fff; /*Consistent white*/
-            }
+
 
         .admin-button-container {
             display: flex;
@@ -102,11 +106,11 @@
             gap: 10px;
         }
 
-
-
         .admin-logo {
-            width: 20px;
-            height: 20px;
+            width: 30px; /* Increased size slightly for better visibility */
+            height: 30px; /*  Keep it square */
+            border-radius: 50%; /* Make it circular */
+            object-fit: cover;  /*  Important:  Prevents distortion */
         }
 
         @media (max-width: 768px) {
@@ -117,13 +121,9 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background-color: #FFA500; /* Orange, to match nav */
+                background-color: #cc5500;
                 z-index: 1;
               }
-
-            body.dark-mode #nav-links {
-                background-color: #222;
-            }
 
             #nav-links.show {
               display: flex;
@@ -200,14 +200,14 @@
 
         /* Gallery Section - Centered */
         #gallery {
-            text-align: center; /* Center the gallery content */
+            text-align: center;
         }
 
         #gallery img {
             max-width: 30%;
             height: auto;
             margin: 5px;
-            display: inline-block; /* Important for centering */
+            display: inline-block;
         }
 
 
@@ -217,20 +217,15 @@
             background-color: #f0f0f0;
             margin-top: 20px;
         }
-
-        body.dark-mode footer {
+           body.dark-mode footer {
             background-color: #222;
-        }
-
+           }
         .logo {
             font-size: 1.5em;
             font-weight: bold;
-            color: white; /* White text for logo */
+            color: white;
         }
 
-        body.dark-mode #darkmode-toggle .material-icons{
-            color:white;
-        }
 
         @media (max-width: 768px) {
             #features .feature {
@@ -261,7 +256,7 @@
             </ul>
 
             <div class="admin-button-container">
-                <img src="images/your-small-logo.png" alt="Admin Logo" class="admin-logo">
+                <img src="https://i.pinimg.com/originals/f3/d1/ed/f3d1edf10d63c40e1fa06364176fa502.png" alt="Admin Logo" class="admin-logo">
                 <a href="https://project-fireplace.github.io/website/adminmanagement.html" class="admin-button">Admin</a>
             </div>
         </nav>
