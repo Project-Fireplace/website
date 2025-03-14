@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Lua Info</title>
-    <!--  I'm assuming a folder structure where 'lua' is a subdirectory of the root,
-          and 'script.js' is in the root.  ADJUST THESE PATHS IF NECESSARY. -->
-    <link rel="stylesheet" href="/lua/luna_style.css">
+    <!-- ADJUST THESE PATHS! I'm assuming 'lua' is a subdirectory, and 'script.js' is in the root. -->
+    <link rel="stylesheet" href="/lua/luna_style.css">  <!-- External CSS is still best practice -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <!--  Include YOUR JavaScript files here -->
-    <script src="/script.js" defer></script>
-    <!-- Use 'defer' to ensure the scripts run after the HTML is parsed -->
+    <script src="/script.js" defer></script> <!-- External JS is still best practice -->
+
     <style>
-        /*  Inline CSS for sr-only.  Best practice is to put this in luna_style.css,
-            but this makes it self-contained for copy/paste. */
+        /* Inline CSS -  BEST PRACTICE is to put this in luna_style.css,
+           but this makes the code self-contained for copy/paste. */
+
+        /* Apply Roboto to the entire body */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* sr-only class for accessibility */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -26,25 +31,37 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+
+        /* Example: Style the headings (you can customize this) */
+        h1, h2, h3 {
+            font-weight: 500;
+        }
+
+        /* Example: Style the code block */
+        pre {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 1em;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <!--  Hamburger menu -->
             <button id="hamburger-menu" aria-label="Open Menu">
                 <span class="material-icons" aria-hidden="true">menu</span>
-                <span class="sr-only">Open Menu</span>  <!-- For screen readers -->
+                <span class="sr-only">Open Menu</span>
             </button>
 
             <ul id="nav-links">
-                <!--  ADJUST THESE PATHS IF NECESSARY. -->
+                <!-- ADJUST THESE PATHS! -->
                 <li><a href="/index.html#home"><span class="material-icons" aria-hidden="true">home</span>Home</a></li>
                 <li><a href="/index.html#features"><span class="material-icons" aria-hidden="true">settings</span>Features</a></li>
                 <li><a href="/index.html#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>Gallery</a></li>
                 <li><a href="/contact/contact.html"><span class="material-icons" aria-hidden="true">contact_mail</span>Contact</a></li>
                 <li>
-                    <!-- Dark mode toggle -->
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons" aria-hidden="true">dark_mode</span>
                         <span class="darkmode-label">Light Mode</span>
@@ -57,40 +74,23 @@
     <main>
         <h1>What is Lua?</h1>
         <p>
-            Lua is a coding language which originates from Rio de Janeiro in Brazil, created by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, and Waldemar Celes in 1993 while they were part of the Computer Graphics Technology Group at a church. Today, this code is used by thousands of professionals every day on services like Roblox Studio and many more.
+            Lua is a coding language... (rest of your content)
         </p>
 
         <section>
             <h2>Key Features of Lua</h2>
             <ul>
-                <li>Lightweight and embeddable</li>
-                <li>Fast execution speed</li>
-                <li>Easy to learn and use</li>
-                <li>Extensible with C/C++</li>
-                <li>Used in game development, scripting, and more</li>
+                <li>Lightweight and embeddable also easy to use.</li
             </ul>
         </section>
 
-        <section>
-            <h2>Example Lua Code</h2>
-            <pre><code>
--- Simple Lua function
-function greet(name) {
-  console.log("Hello, " + name + "!");
-}
-
-greet("World");  // Output: Hello, World!
-            </code></pre>
-        </section>
     </main>
 
     <footer>
         <p>© <span id="current-year"></span> Project Fireplace</p>
     </footer>
     <script>
-      // Put the copyright year script *before* your other script, or combine them.
       document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
-
 </body>
 </html>
