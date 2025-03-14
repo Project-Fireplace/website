@@ -21,20 +21,20 @@
             background-color: #333;
             color: #f0f0f0;
         }
-        body.dark-mode nav { background-color: #222; }
-        body.dark-mode nav * { color: white; }
+        body.dark-mode nav { background-color: #7d3f0c; } /* Dark Orange Nav */
+        body.dark-mode nav * { color: white; }  /* White text in dark mode nav */
         body.dark-mode #nav-links li a,
         body.dark-mode .logo,
         body.dark-mode #hamburger-menu,
         body.dark-mode footer { color: white; }
-        body.dark-mode #nav-links { background-color: #222; }
+        body.dark-mode #nav-links { background-color: #7d3f0c; } /* Dark Orange Nav Links */
         body.dark-mode .admin-button { background-color: #7d3f0c; }
         body.dark-mode .admin-button:hover { background-color: #5a2d08; }
         body.dark-mode #darkmode-toggle .material-icons { color: white; }
 
         /* Light Mode Styles (and default) */
         nav {
-            background-color: #cc5500;
+            background-color: #cc5500; /* Keep original orange for light mode */
             padding: 10px 20px;
             display: flex;
             align-items: center;
@@ -43,7 +43,7 @@
         }
         #nav-links li a { color: white; }
         .admin-button {
-            background-color: #cc5500;
+            background-color: #cc5500; /* Keep original orange for light mode */
             color: white;
             padding: 10px 15px;
             border: none;
@@ -89,7 +89,7 @@
                 top: 60px;
                 left: 0;
                 width: 100%;
-                background-color: #cc5500;
+                background-color: #cc5500;  /* Keep original orange on mobile */
                 z-index: 1;
               }
             #nav-links.show { display: flex; }
@@ -99,6 +99,8 @@
             }
             #hamburger-menu { display: block; }
             .admin-button-container { margin-right: auto; }
+             body.dark-mode #nav-links { background-color: #7d3f0c; } /* Dark Orange */
+
         }
 
         section {
