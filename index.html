@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* Combined CSS - Normally, put this in style.css */
+        /* All CSS in one place */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Dark Mode Styles */
@@ -24,6 +24,10 @@
 
         body.dark-mode nav {
             background-color: #222;
+            color: white;
+        }
+
+        body.dark-mode nav * {
             color: white;
         }
 
@@ -44,10 +48,6 @@
         body.dark-mode .admin-button:hover {
             background-color: #5a2d08;
         }
-        body.dark-mode #darkmode-toggle .material-icons{
-            color:white;
-        }
-
 
         /* Darker Orange Theme */
         nav {
@@ -78,8 +78,6 @@
             background-color: #993300;
         }
 
-
-
         #nav-links {
             list-style: none;
             display: flex;
@@ -87,8 +85,6 @@
             margin: 0;
             padding: 0;
         }
-
-
 
         #hamburger-menu {
             display: none;
@@ -99,7 +95,6 @@
             color: white;
         }
 
-
         .admin-button-container {
             display: flex;
             align-items: center;
@@ -107,10 +102,10 @@
         }
 
         .admin-logo {
-            width: 30px; /* Increased size slightly for better visibility */
-            height: 30px; /*  Keep it square */
-            border-radius: 50%; /* Make it circular */
-            object-fit: cover;  /*  Important:  Prevents distortion */
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
         }
 
         @media (max-width: 768px) {
@@ -143,7 +138,6 @@
             }
         }
 
-          /* Styles for sections */
         section {
             padding: 20px;
         }
@@ -158,7 +152,6 @@
             margin-top: 20px;
         }
 
-        /* Feature Section */
         #features {
             display: flex;
             justify-content: space-around;
@@ -179,10 +172,13 @@
         }
 
         #features .feature img{
-            width: 80%;
-            max-width: 200px;
+            width: auto;
+            max-width: 70%;
             height: auto;
             margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #features .feature h3 {
@@ -198,7 +194,6 @@
             padding:0;
         }
 
-        /* Gallery Section - Centered */
         #gallery {
             text-align: center;
         }
@@ -209,7 +204,6 @@
             margin: 5px;
             display: inline-block;
         }
-
 
         footer {
             text-align: center;
@@ -225,7 +219,6 @@
             font-weight: bold;
             color: white;
         }
-
 
         @media (max-width: 768px) {
             #features .feature {
@@ -305,7 +298,7 @@
     </footer>
 
     <script>
-        // Hamburger menu toggle
+        // All JavaScript in one place
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
 
@@ -313,22 +306,24 @@
           navLinks.classList.toggle('show');
         });
 
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('darkmode-toggle');
-        const darkModeLabel = document.querySelector('.darkmode-label');
+        function updateDarkModeButton() {
+            const darkModeToggle = document.getElementById('darkmode-toggle');
+            const darkModeLabel = document.querySelector('.darkmode-label');
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeLabel.textContent = 'Light Mode';
+                darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+            } else {
+                darkModeLabel.textContent = 'Dark Mode';
+                darkModeToggle.querySelector('.material-icons').textContent = 'dark_mode';
+            }
+        }
 
-        darkModeToggle.addEventListener('click', () => {
-          document.body.classList.toggle('dark-mode');
+        updateDarkModeButton();
 
-          if (document.body.classList.contains('dark-mode')) {
-            darkModeLabel.textContent = 'Dark Mode';
-            darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
-          } else {
-            darkModeLabel.textContent = 'Light Mode';
-            darkModeToggle.querySelector('.material-icons').textContent = 'dark_mode';
-          }
+        document.getElementById('darkmode-toggle').addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            updateDarkModeButton();
         });
-
     </script>
 </body>
 </html>
