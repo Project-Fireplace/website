@@ -22,11 +22,12 @@
             color: #f0f0f0;
         }
 
+        /* Ensure nav background is dark in dark mode */
         body.dark-mode nav {
             background-color: #222;
-            color: white;
         }
 
+        /* Make sure ALL text inside nav is white in dark mode */
         body.dark-mode nav * {
             color: white;
         }
@@ -41,6 +42,7 @@
                 background-color: #222;
             }
 
+        /* Darker orange for admin button in dark mode */
         body.dark-mode .admin-button {
             background-color: #7d3f0c;
         }
@@ -48,10 +50,13 @@
         body.dark-mode .admin-button:hover {
             background-color: #5a2d08;
         }
+        body.dark-mode #darkmode-toggle .material-icons {
+            color: white; /* Make sure icon is white in dark mode */
+        }
 
-        /* Darker Orange Theme */
+        /* Light Mode Styles (and default) */
         nav {
-            background-color: #cc5500;
+            background-color: #cc5500; /* Darker Orange */
             padding: 10px 20px;
             display: flex;
             align-items: center;
@@ -108,6 +113,7 @@
             object-fit: cover;
         }
 
+        /* Responsive Navigation */
         @media (max-width: 768px) {
             #nav-links {
                 display: none;
@@ -142,6 +148,7 @@
             padding: 20px;
         }
 
+        /* Center Hero Content */
         #hero {
             text-align: center;
         }
@@ -152,6 +159,12 @@
             margin-top: 20px;
         }
 
+        /* Center About Section Content */
+        #about {
+            text-align: center;
+        }
+
+        /* Feature Section - Corrected Image Sizing */
         #features {
             display: flex;
             justify-content: space-around;
@@ -160,7 +173,7 @@
         #features .feature {
             width: 45%;
             margin-bottom: 20px;
-            text-align: center;
+            text-align: center; /* Center text within feature box */
             border: 1px solid #ddd;
             padding: 15px;
             border-radius: 8px;
@@ -170,15 +183,13 @@
         #features .feature:hover {
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-
+        /* Corrected Image Styling for Feature Boxes */
         #features .feature img{
-            width: auto;
-            max-width: 70%;
-            height: auto;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
+            width: auto;       /* Let the image dictate its width */
+            max-width: 70%;  /*  But don't let it exceed 70% of the container */
+            height: auto;     /* Maintain aspect ratio */
+            display: block;  /* Make it a block element for centering */
+            margin: 0 auto;   /*  Shorthand for centering horizontally */
         }
 
         #features .feature h3 {
@@ -194,6 +205,7 @@
             padding:0;
         }
 
+        /* Gallery Section */
         #gallery {
             text-align: center;
         }
@@ -220,11 +232,42 @@
             color: white;
         }
 
+        /* Responsive Features */
         @media (max-width: 768px) {
             #features .feature {
                 width: 100%;
             }
         }
+
+        /* Dark Mode Toggle Button - Improved Readability */
+        #darkmode-toggle {
+            background-color: transparent; /* No background */
+            border: none;
+            color: white;      /* White text in light mode */
+            padding: 0;           /* Remove padding */
+            cursor: pointer;
+            font-size: 1em;     /* Adjust size as needed */
+        }
+
+        body.dark-mode #darkmode-toggle {
+          color: white;
+          background-color: transparent;
+        }
+
+        /* Ensure icon is large enough */
+        #darkmode-toggle .material-icons {
+            font-size: 1.5em; /* Larger icon */
+            vertical-align: middle; /* Align icon with text */
+        }
+        body.dark-mode  #darkmode-toggle .material-icons{
+            color:white;
+        }
+
+        /* Style the label */
+        #darkmode-toggle .darkmode-label{
+              vertical-align: middle; /* Align label with icon */
+        }
+
     </style>
 </head>
 <body>
@@ -298,7 +341,7 @@
     </footer>
 
     <script>
-        // All JavaScript in one place
+        // Hamburger menu toggle
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
 
@@ -306,6 +349,7 @@
           navLinks.classList.toggle('show');
         });
 
+        // Dark mode toggle - Corrected and Improved
         function updateDarkModeButton() {
             const darkModeToggle = document.getElementById('darkmode-toggle');
             const darkModeLabel = document.querySelector('.darkmode-label');
@@ -318,11 +362,11 @@
             }
         }
 
-        updateDarkModeButton();
+        updateDarkModeButton(); // Set initial state
 
         document.getElementById('darkmode-toggle').addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            updateDarkModeButton();
+            updateDarkModeButton(); // Update after toggling
         });
     </script>
 </body>
