@@ -105,30 +105,26 @@
             padding: 20px;
         }
         #hero { text-align: center; }
-        #hero img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
+        /* REMOVED:  #hero img styles */
+
         #about { text-align: center; }
 
-       /* Feature Section - Smaller Boxes and Centered */
+       /* Feature Section */
         #features {
-          text-align: center; /* Center the h2 */
+          text-align: center;
         }
 
         #features h2{
           margin-bottom: 1em;
         }
         #features .feature-container {
-            display: flex;         /*  Use flexbox for layout */
-            justify-content: center; /* Center items horizontally */
-            gap: 20px;             /* Space between boxes */
-            flex-wrap: wrap;        /* Allow wrapping on smaller screens */
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         #features .feature {
-            width: 30%;  /*  Reduced width */
-            /* Removed margin-bottom (spacing handled by gap) */
+            width: 30%;
             text-align: center;
             border: 1px solid #ddd;
             padding: 15px;
@@ -139,7 +135,7 @@
         #features .feature:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
         #features .feature img {
             width: auto;
-            max-width: 80%;   /* Adjusted max-width slightly */
+            max-width: 80%;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -154,12 +150,12 @@
         /* Responsive Features */
         @media (max-width: 768px) {
             #features .feature {
-                width: 80%; /* Wider on smaller screens */
+                width: 80%;
             }
         }
-        @media (max-width: 480px) { /* Even smaller screens */
+        @media (max-width: 480px) {
           #features .feature {
-              width: 100%;  /* Full width */
+              width: 100%;
           }
         }
 
@@ -236,12 +232,12 @@
     <section id="hero">
         <h1>Project Fireplace</h1>
         <p>A captivating project illuminating the future.</p>
-        <img src="images/homepage-hero-image.jpg" alt="Hero Image">
+        <!-- REMOVED: Hero image tag -->
     </section>
 
     <section id="about">
         <h2>About Project Fireplace</h2>
-        <p>Welcome, to project Fireplace. A place our projects keep warm as we develop them up and until they are strong enough for the public.</p>
+        <p>Welcome to Project Fireplace. A place where our projects keep warm as we develop them, up until they are strong enough for the public.</p>
     </section>
 
      <section id="features">
