@@ -21,53 +21,27 @@
             background-color: #333;
             color: #f0f0f0;
         }
-
-        /* Ensure nav background is dark in dark mode */
-        body.dark-mode nav {
-            background-color: #222;
-        }
-
-        /* Make sure ALL text inside nav is white in dark mode */
-        body.dark-mode nav * {
-            color: white;
-        }
-
+        body.dark-mode nav { background-color: #222; }
+        body.dark-mode nav * { color: white; }
         body.dark-mode #nav-links li a,
         body.dark-mode .logo,
         body.dark-mode #hamburger-menu,
-        body.dark-mode footer {
-            color: white;
-        }
-         body.dark-mode #nav-links {
-                background-color: #222;
-            }
-
-        /* Darker orange for admin button in dark mode */
-        body.dark-mode .admin-button {
-            background-color: #7d3f0c;
-        }
-
-        body.dark-mode .admin-button:hover {
-            background-color: #5a2d08;
-        }
-        body.dark-mode #darkmode-toggle .material-icons {
-            color: white; /* Make sure icon is white in dark mode */
-        }
+        body.dark-mode footer { color: white; }
+        body.dark-mode #nav-links { background-color: #222; }
+        body.dark-mode .admin-button { background-color: #7d3f0c; }
+        body.dark-mode .admin-button:hover { background-color: #5a2d08; }
+        body.dark-mode #darkmode-toggle .material-icons { color: white; }
 
         /* Light Mode Styles (and default) */
         nav {
-            background-color: #cc5500; /* Darker Orange */
+            background-color: #cc5500;
             padding: 10px 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             color: white;
         }
-
-        #nav-links li a {
-            color: white;
-        }
-
+        #nav-links li a { color: white; }
         .admin-button {
             background-color: #cc5500;
             color: white;
@@ -78,11 +52,7 @@
             text-decoration: none;
             font-size: 16px;
         }
-
-        .admin-button:hover {
-            background-color: #993300;
-        }
-
+        .admin-button:hover { background-color: #993300; }
         #nav-links {
             list-style: none;
             display: flex;
@@ -90,7 +60,6 @@
             margin: 0;
             padding: 0;
         }
-
         #hamburger-menu {
             display: none;
             background: none;
@@ -99,13 +68,11 @@
             font-size: 24px;
             color: white;
         }
-
         .admin-button-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
         .admin-logo {
             width: 30px;
             height: 30px;
@@ -125,148 +92,114 @@
                 background-color: #cc5500;
                 z-index: 1;
               }
-
-            #nav-links.show {
-              display: flex;
-            }
-
-              #nav-links li {
+            #nav-links.show { display: flex; }
+            #nav-links li {
                 padding: 10px 0;
                 text-align: center;
             }
-
-            #hamburger-menu {
-                display: block;
-            }
-
-            .admin-button-container {
-                margin-right: auto;
-            }
+            #hamburger-menu { display: block; }
+            .admin-button-container { margin-right: auto; }
         }
 
         section {
             padding: 20px;
         }
-
-        /* Center Hero Content */
-        #hero {
-            text-align: center;
-        }
-
+        #hero { text-align: center; }
         #hero img {
             max-width: 100%;
             height: auto;
             margin-top: 20px;
         }
+        #about { text-align: center; }
 
-        /* Center About Section Content */
-        #about {
-            text-align: center;
+       /* Feature Section - Smaller Boxes and Centered */
+        #features {
+          text-align: center; /* Center the h2 */
         }
 
-        /* Feature Section - Corrected Image Sizing */
-        #features {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+        #features h2{
+          margin-bottom: 1em;
+        }
+        #features .feature-container {
+            display: flex;         /*  Use flexbox for layout */
+            justify-content: center; /* Center items horizontally */
+            gap: 20px;             /* Space between boxes */
+            flex-wrap: wrap;        /* Allow wrapping on smaller screens */
         }
         #features .feature {
-            width: 45%;
-            margin-bottom: 20px;
-            text-align: center; /* Center text within feature box */
+            width: 30%;  /*  Reduced width */
+            /* Removed margin-bottom (spacing handled by gap) */
+            text-align: center;
             border: 1px solid #ddd;
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        #features .feature:hover {
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        #features .feature:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        #features .feature img {
+            width: auto;
+            max-width: 80%;   /* Adjusted max-width slightly */
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
-        /* Corrected Image Styling for Feature Boxes */
-        #features .feature img{
-            width: auto;       /* Let the image dictate its width */
-            max-width: 70%;  /*  But don't let it exceed 70% of the container */
-            height: auto;     /* Maintain aspect ratio */
-            display: block;  /* Make it a block element for centering */
-            margin: 0 auto;   /*  Shorthand for centering horizontally */
-        }
-
-        #features .feature h3 {
-            margin-bottom: 5px;
-        }
-
+        #features .feature h3 { margin-bottom: 5px; }
         #features .feature li {
             list-style: none;
             text-align: center;
         }
+        #features .feature ul { padding: 0; }
 
-        #features .feature ul{
-            padding:0;
+        /* Responsive Features */
+        @media (max-width: 768px) {
+            #features .feature {
+                width: 80%; /* Wider on smaller screens */
+            }
+        }
+        @media (max-width: 480px) { /* Even smaller screens */
+          #features .feature {
+              width: 100%;  /* Full width */
+          }
         }
 
-        /* Gallery Section */
-        #gallery {
-            text-align: center;
-        }
-
+        #gallery { text-align: center; }
         #gallery img {
             max-width: 30%;
             height: auto;
             margin: 5px;
             display: inline-block;
         }
-
         footer {
             text-align: center;
             padding: 10px;
             background-color: #f0f0f0;
             margin-top: 20px;
         }
-           body.dark-mode footer {
-            background-color: #222;
-           }
+        body.dark-mode footer { background-color: #222; }
         .logo {
             font-size: 1.5em;
             font-weight: bold;
             color: white;
         }
 
-        /* Responsive Features */
-        @media (max-width: 768px) {
-            #features .feature {
-                width: 100%;
-            }
-        }
-
-        /* Dark Mode Toggle Button - Improved Readability */
         #darkmode-toggle {
-            background-color: transparent; /* No background */
+            background-color: transparent;
             border: none;
-            color: white;      /* White text in light mode */
-            padding: 0;           /* Remove padding */
+            color: white;
+            padding: 0;
             cursor: pointer;
-            font-size: 1em;     /* Adjust size as needed */
+            font-size: 1em;
         }
-
-        body.dark-mode #darkmode-toggle {
-          color: white;
-          background-color: transparent;
-        }
-
-        /* Ensure icon is large enough */
+        body.dark-mode #darkmode-toggle { color: white; background-color: transparent; }
         #darkmode-toggle .material-icons {
-            font-size: 1.5em; /* Larger icon */
-            vertical-align: middle; /* Align icon with text */
+            font-size: 1.5em;
+            vertical-align: middle;
         }
-        body.dark-mode  #darkmode-toggle .material-icons{
+         body.dark-mode  #darkmode-toggle .material-icons{
             color:white;
         }
-
-        /* Style the label */
-        #darkmode-toggle .darkmode-label{
-              vertical-align: middle; /* Align label with icon */
-        }
+        #darkmode-toggle .darkmode-label { vertical-align: middle; }
 
     </style>
 </head>
@@ -298,9 +231,7 @@
         </nav>
     </header>
 
-    <section id="home">
-        <!-- Content for the home section (if any) -->
-    </section>
+    <section id="home"></section>
 
     <section id="hero">
         <h1>Project Fireplace</h1>
@@ -313,19 +244,21 @@
         <p>Welcome, to project Fireplace. A place our projects keep warm as we develop them up and until they are strong enough for the public.</p>
     </section>
 
-    <section id="features">
+     <section id="features">
         <h2>Features</h2>
-        <div class="feature">
-            <img src="images/lua_banner.png" alt="Lua Logo">
-            <h3>Lua Code</h3>
-            <ul>
-              <li><a href="lua/lua.html"><span class="material-icons">code</span>Find Out More Here</a></li>
-            </ul>
-        </div>
-        <div class="feature">
-            <img src="https://www.freeiconspng.com/thumbs/penguin-icon/penguin-icon-11.png" alt="Feature 2">
-            <h3>Penguin stocks</h3>
-            <p>Stocks of the future.</p>
+        <div class="feature-container">
+            <div class="feature">
+                <img src="images/lua_banner.png" alt="Lua Logo">
+                <h3>Lua Code</h3>
+                <ul>
+                  <li><a href="lua/lua.html"><span class="material-icons">code</span>Find Out More Here</a></li>
+                </ul>
+            </div>
+            <div class="feature">
+                <img src="https://www.freeiconspng.com/thumbs/penguin-icon/penguin-icon-11.png" alt="Feature 2">
+                <h3>Penguin stocks</h3>
+                <p>Stocks of the future.</p>
+            </div>
         </div>
     </section>
 
@@ -341,15 +274,10 @@
     </footer>
 
     <script>
-        // Hamburger menu toggle
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
+        hamburgerMenu.addEventListener('click', () => { navLinks.classList.toggle('show'); });
 
-        hamburgerMenu.addEventListener('click', () => {
-          navLinks.classList.toggle('show');
-        });
-
-        // Dark mode toggle - Corrected and Improved
         function updateDarkModeButton() {
             const darkModeToggle = document.getElementById('darkmode-toggle');
             const darkModeLabel = document.querySelector('.darkmode-label');
@@ -362,11 +290,10 @@
             }
         }
 
-        updateDarkModeButton(); // Set initial state
-
+        updateDarkModeButton();
         document.getElementById('darkmode-toggle').addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            updateDarkModeButton(); // Update after toggling
+            updateDarkModeButton();
         });
     </script>
 </body>
