@@ -4,15 +4,183 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace</title>
-    <link rel="stylesheet" href="style.css">
     <!-- Include Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Combined CSS - Normally, put this in style.css */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode nav {
+            background-color: #222;
+        }
+        body.dark-mode #nav-links li a, body.dark-mode .logo {
+            color: #fff;
+        }
+        body.dark-mode .admin-button {
+            background-color: #27ae60; /* Slightly different green for dark mode */
+        }
+
+        body.dark-mode .admin-button:hover{
+            background-color: #1e8449;
+        }
+
+        nav {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav-links li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #hamburger-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .admin-button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .admin-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .admin-logo {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            #nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #f0f0f0;
+                z-index: 1;
+              }
+              body.dark-mode #nav-links {
+                background-color: #222;  /* Match dark mode nav color */
+              }
+
+            #nav-links.show {
+              display: flex;
+            }
+
+              #nav-links li {
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            #hamburger-menu {
+                display: block;
+            }
+
+            .admin-button-container {
+                margin-right: auto;
+            }
+        }
+
+          /* Styles for sections */
+        section {
+            padding: 20px; /* Add some padding to all sections */
+        }
+
+        #hero {
+            text-align: center; /* Center-align the hero content */
+        }
+
+        #hero img {
+            max-width: 100%; /* Make the hero image responsive */
+            height: auto;
+            margin-top: 20px;
+        }
+
+        #features .feature {
+            margin-bottom: 20px; /* Space between feature items */
+            text-align: center;
+        }
+        #features .feature img{
+            width: 40%;
+        }
+
+        #gallery img {
+            max-width: 30%; /* Adjust as needed for gallery layout */
+            height: auto;
+            margin: 5px; /* Add some spacing between gallery images */
+        }
+
+
+        footer {
+            text-align: center;  /* Center the footer text */
+            padding: 10px;
+            background-color: #f0f0f0;
+            margin-top: 20px;
+        }
+        body.dark-mode footer {
+            background-color: #222; /* Consistent dark background */
+        }
+        .logo {
+            /* Add styles for your logo text if needed */
+            font-size: 1.5em; /* Example: make the logo text larger */
+            font-weight: bold;
+        }
+        body.dark-mode #darkmode-toggle .material-icons{
+            color:white;
+        }
+
+
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <img scr="images/logo.png" alt="Project Fireplace Logo">
             <div class="logo">Project Fireplace</div>
             <button id="hamburger-menu" aria-label="Menu">
                 <span class="material-icons">menu</span>
@@ -26,17 +194,22 @@
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons">dark_mode</span>
-                        <span class="darkmode-label">Light Mode</span> <!-- Label, initially set for light mode -->
+                        <span class="darkmode-label">Light Mode</span>
                     </button>
                 </li>
             </ul>
+
+            <div class="admin-button-container">
+                <img src="images/your-small-logo.png" alt="Admin Logo" class="admin-logo">
+                <a href="https://project-fireplace.github.io/website/adminmanagement.html" class="admin-button">Admin</a>
+            </div>
         </nav>
     </header>
-    
+
     <section id="home">
-        
+        <!-- Content for the home section (if any) -->
     </section>
-        
+
     <section id="hero">
         <h1>Project Fireplace</h1>
         <p>A captivating project illuminating the future.</p>
@@ -68,12 +241,36 @@
         <img src="image2.jpg" alt="Gallery Image 2">
         <img src="image3.jpg" alt="Gallery Image 3">
     </section>
-    
 
     <footer>
         <p>© 2025 Project Fireplace</p>
-        
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+          navLinks.classList.toggle('show');
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkmode-toggle');
+        const darkModeLabel = document.querySelector('.darkmode-label');
+
+        darkModeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+
+          if (document.body.classList.contains('dark-mode')) {
+            darkModeLabel.textContent = 'Dark Mode';
+            darkModeToggle.querySelector('.material-icons').textContent = 'light_mode';
+          } else {
+            darkModeLabel.textContent = 'Light Mode';
+            darkModeToggle.querySelector('.material-icons').textContent = 'dark_mode';
+          }
+        });
+
     </script>
-    <script src="script.js"></script>
 </body>
 </html>
