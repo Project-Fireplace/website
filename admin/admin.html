@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Bot Accounts & Insider News</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">×</span>
+            <h2>Admin Login</h2>
+            <div class="input-field">
+                <i class="material-icons prefix">lock</i>
+                <input id="password" type="password" placeholder="Password">
+                <label for="password">Password</label>
+            </div>
+            <button id="login-button" class="btn waves-effect waves-light">Login</button>
+            <p id="login-message" class="error-message"></p>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <span class="material-icons menu-icon">menu</span>
+            <h1>Admin Dashboard</h1>
+        </div>
+    </header>
+
+    <main>
+        <section id="dashboard-content">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Welcome, Admin!</span>
+                    <p>This is your secure dashboard for bot account information and insider news.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Bot Account Logins</span>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Bot Name</th>
+                                    <th>Platform</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bot1</td>
+                                    <td>Discord</td>
+                                    <td>bot1_user</td>
+                                    <td><span class="masked-password">••••••••••</span><i class="material-icons reveal-icon">visibility</i></td>
+                                    <td><span class="status-active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-small">Edit</button>
+                                        <button class="btn btn-small btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bot2</td>
+                                    <td>Twitter</td>
+                                    <td>bot2_user</td>
+                                     <td><span class="masked-password">••••••••••</span><i class="material-icons reveal-icon">visibility</i></td>
+                                    <td><span class="status-inactive">Inactive</span></td>
+                                    <td>
+                                         <button class="btn btn-small">Edit</button>
+                                        <button class="btn btn-small btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Bot3</td>
+                                    <td>Reddit</td>
+                                    <td>bot3_user</td>
+                                     <td><span class="masked-password">••••••••••</span><i class="material-icons reveal-icon">visibility</i></td>
+                                    <td><span class="status-active">Active</span></td>
+                                    <td>
+                                         <button class="btn btn-small">Edit</button>
+                                        <button class="btn btn-small btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Insider News</span>
+                    <textarea id="news-textarea" class="materialize-textarea" placeholder="Enter insider news here..."></textarea>
+                      <button id="save-news-button" class="btn">Save News</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <footer>
+        <p>© 2025 Project Freplace</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
