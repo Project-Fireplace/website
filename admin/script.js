@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const newsTextarea = document.getElementById('news-textarea');
     const saveNewsButton = document.getElementById('save-news-button');
 
-    const correctPassword = "your_strong_password"; // CHANGE THIS TO YOUR PASSWORD
+    const correctPassword = "firelight-access-2025"; // CHANGE THIS TO YOUR PASSWORD
 
     // --- Login Functionality ---
     function showDashboard() {
