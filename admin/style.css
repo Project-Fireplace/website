@@ -1,0 +1,321 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensure the body takes at least the full viewport height */
+}
+
+/* Header styles */
+header {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    color: #333;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;  /* Make the header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure header is above other content */
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Main content styles */
+main {
+    flex: 1; /* Allow main to grow and fill available space */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%; /* Ensure it takes the full width */
+}
+
+/* Material You Theming (Yellow) */
+:root {
+    --primary-color: #ffeb3b; /* Yellow */
+    --primary-color-light: #fff176;
+    --primary-color-dark: #fbc02d;
+    --secondary-color: #616161; /* Grey for contrast */
+    --surface-color: #fff;
+    --on-primary-color: #333;
+    --on-secondary-color: #fff;
+    --on-surface-color: #333;
+    --error-color: #b00020;
+    --error-color-light:#e57373;
+}
+
+
+/* Button Styles */
+.btn {
+    background-color: var(--primary-color);
+    color: var(--on-primary-color);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);  /* Material design shadow */
+    margin-top: 1rem;
+    display: inline-block; /* Important for consistent width */
+}
+
+.btn:hover {
+    background-color: var(--primary-color-dark);
+}
+.btn:focus {
+  outline: none;  /* Remove default focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 235, 59, 0.5); /* Custom focus ring */
+}
+
+.btn-small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+}
+
+.btn-danger {
+    background-color: var(--error-color);
+    color: white;
+}
+.btn-danger:hover {
+    background-color: var(--error-color-light)
+}
+/* Card Styles */
+.card {
+  background-color: var(--surface-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;  /* Spacing between cards */
+  overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--on-surface-color);
+}
+/* Input Field Styles (Material You) */
+.input-field {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-field input {
+    border: none;
+    border-bottom: 2px solid var(--secondary-color);
+    outline: none;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    background-color: transparent;
+    color: var(--on-surface-color);
+}
+
+
+.input-field label {
+    position: absolute;
+    top: 0.5rem;
+    left: 2.5rem; /* Space for the icon */
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+    pointer-events: none; /* Make label click-through */
+    font-size: 1rem;
+}
+
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label {
+    top: -1rem;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+}
+
+.input-field input:focus {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.input-field .prefix {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    color: var(--secondary-color);
+
+}
+.input-field input:focus + label + .prefix,
+.input-field input:not(:placeholder-shown) + label + .prefix{
+   color: var(--primary-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Above the sticky header */
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;  /* Responsive width */
+    max-width: 400px; /* Maximum width */
+    position: relative; /* For the close button */
+}
+
+.close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+
+.close-button:hover {
+    color: var(--on-surface-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Table Styles */
+.table-container {
+    overflow-x: auto; /* Horizontal scrolling for smaller screens */
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--primary-color-light);
+    color: var(--on-primary-color);
+}
+td:last-child {
+    text-align: right;
+}
+
+/* Status Styles */
+.status-active {
+    color: green;
+    font-weight: bold;
+}
+.status-inactive {
+    color: red;
+     font-weight: bold;
+}
+
+.masked-password {
+    display: inline-block;
+    margin-right: .5rem;
+
+}
+
+.reveal-icon {
+    cursor: pointer;
+     vertical-align: middle;
+}
+
+/* Textarea Styles */
+.materialize-textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 100px;
+  background-color: transparent;
+  color: var(--on-surface-color)
+}
+.materialize-textarea:focus {
+    border-color: var(--primary-color);
+     outline: none;
+}
+
+
+/* Footer Styles */
+footer {
+    background-color: #f5f5f5;
+    color: #777;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Push the footer to the bottom */
+}
+
+/* Hide dashboard content initially */
+#dashboard-content {
+    display: none;
+}
+header {
+    display:none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;  /* Wider on smaller screens */
+    }
+
+    main {
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    .card-content {
+        padding: 1rem;  /* Adjust card padding for smaller screens */
+    }
+    th, td {
+        padding: 0.5rem; /* Reduce padding in table cells */
+    }
+     .btn-small {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
+     }
+}
