@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Lua Info</title>
-    <!-- ADJUST THESE PATHS! I'm assuming 'lua' is a subdirectory, and 'script.js' is in the root. -->
-    <link rel="stylesheet" href="/lua/luna_style.css">  <!-- External CSS is still best practice -->
+    <link rel="stylesheet" href="/lua/luna_style.css">  <!-- Assuming luna_style.css contains the styles below -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-    <script src="/script.js" defer></script> <!-- External JS is still best practice -->
+    <script src="/script.js" defer></script> <!-- External JS is good -->
 
     <style>
-        /* Inline CSS -  BEST PRACTICE is to put this in luna_style.css,
-           but this makes the code self-contained for copy/paste. */
+        /*  It's better to put these styles in luna_style.css for maintainability
+            and separation of concerns.  I've included comments below showing
+            how to organize luna_style.css if you did that. */
 
-        /* Apply Roboto to the entire body */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif; /* Good */
+            margin: 0; /* Remove default body margins */
+            background-color: #f4f4f4; /* Example background color */
+            color: #333; /* Example text color */
         }
 
-        /* sr-only class for accessibility */
+        /* luna_style.css:  .sr-only { ... } */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -32,19 +34,170 @@
             border: 0;
         }
 
-        /* Example: Style the headings (you can customize this) */
-        h1, h2, h3 {
-            font-weight: 500;
+        /* luna_style.css:  header { ... } */
+        header {
+            background-color: #fff; /* Example header background */
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
 
-        /* Example: Style the code block */
+        /* luna_style.css:  nav { ... } */
+        nav {
+            display: flex;
+            justify-content: space-between; /* Align items to the ends */
+            align-items: center;  /* Vertically center items */
+        }
+
+        /* luna_style.css:  #hamburger-menu { ... } */
+        #hamburger-menu {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem; /* Adjust icon size as needed */
+            padding: 0.5rem; /* Add some padding for easier clicking */
+        }
+
+        /* luna_style.css: #nav-links { ... } */
+        #nav-links {
+            list-style: none; /* Remove bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex; /* Display links in a row */
+            gap: 1rem;    /* Add space between links */
+        }
+
+        #nav-links li a,
+        #nav-links li button{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Space between icon and text */
+            text-decoration: none; /* Remove underlines */
+            color: #333;  /* Example link color */
+            padding: 0.5rem;
+        }
+
+        /* luna_style.css: (styles for links on hover, etc.) */
+        #nav-links a:hover, #darkmode-toggle:hover{
+            color: #007bff; /* Example hover color */
+            text-decoration: underline;
+        }
+        #darkmode-toggle{
+            background-color: transparent;
+            border: none;
+        }
+
+
+        /* luna_style.css:  h1, h2, h3 { ... } */
+        h1, h2, h3 {
+            font-weight: 500;
+            margin-bottom: 0.5em; /* Add spacing below headings */
+        }
+        h1 {
+            font-size: 2em; /* Adjust heading sizes as needed */
+        }
+        h2 {
+            font-size: 1.5em;
+        }
+
+        /* luna_style.css:  main { ... } */
+        main {
+            padding: 2rem;
+            max-width: 800px; /* Limit content width for readability */
+            margin: 0 auto;    /* Center the content */
+        }
+
+        /* luna_style.css:  section { ... } */
+        section {
+            margin-bottom: 2rem; /* Add spacing between sections */
+        }
+
+        /* luna_style.css:  pre { ... } */
         pre {
             font-family: monospace;
             background-color: #f0f0f0;
             padding: 1em;
             border: 1px solid #ccc;
             overflow-x: auto;
+            border-radius: 4px; /* Slightly rounded corners */
         }
+
+        /* luna_style.css: footer { ... } */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+       
+        /* Dark Mode Styles (luna_style.css) */
+        body.dark-mode {
+            background-color: #222;
+            color: #eee;
+        }
+
+        body.dark-mode header {
+            background-color: #333;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
+        }
+        body.dark-mode #nav-links li a,
+        body.dark-mode #nav-links li button{
+            color: #eee;
+        }
+         body.dark-mode #nav-links a:hover,  body.dark-mode #darkmode-toggle:hover{
+            color: lightblue; /* Example hover color */
+        }
+
+        body.dark-mode pre {
+            background-color: #444;
+            border-color: #666;
+            color: #eee;
+        }
+        body.dark-mode footer{
+            background-color: #444;
+        }
+        @media (max-width: 768px) {
+            #nav-links {
+                display: none; /* Hide links by default on small screens */
+                flex-direction: column; /* Stack links vertically */
+                position: absolute;  /* Position the menu */
+                top: 60px;        /* Adjust as needed based on header height */
+                left: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 10;       /* Ensure menu appears above other content */
+            }
+
+            #nav-links.active {
+                display: flex; /* Show links when menu is active */
+            }
+
+            #nav-links li {
+                width: 100%;  /* Make links take up full width */
+            }
+            #nav-links li a, #nav-links li button {
+                padding: 1rem;
+                display: block; /* Make links take up full width */
+                border-bottom: 1px solid #eee;  /* Add a separator line */
+            }
+
+            /* Dark mode adjustments for the mobile menu */
+            body.dark-mode #nav-links {
+                background-color: rgba(51, 51, 51, 0.95);
+            }
+
+            body.dark-mode #nav-links li a {
+                border-bottom: 1px solid #444;
+            }
+        }
+        body.dark-mode #darkmode-toggle .darkmode-label::before{
+           content: "Dark Mode";
+        }
+        body:not(.dark-mode) #darkmode-toggle .darkmode-label::before{
+            content: "Light Mode"
+        }
+
+
     </style>
 </head>
 <body>
@@ -56,7 +209,6 @@
             </button>
 
             <ul id="nav-links">
-                <!-- ADJUST THESE PATHS! -->
                 <li><a href="/index.html#home"><span class="material-icons" aria-hidden="true">home</span>Home</a></li>
                 <li><a href="/index.html#features"><span class="material-icons" aria-hidden="true">settings</span>Features</a></li>
                 <li><a href="/index.html#gallery"><span class="material-icons" aria-hidden="true">photo_library</span>Gallery</a></li>
@@ -64,7 +216,7 @@
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons" aria-hidden="true">dark_mode</span>
-                        <span class="darkmode-label">Light Mode</span>
+                        <span class="darkmode-label"></span>
                     </button>
                 </li>
             </ul>
@@ -80,8 +232,22 @@
         <section>
             <h2>Key Features of Lua</h2>
             <ul>
-                <li>Lightweight and embeddable also easy to use.</li
+                <li>Lightweight and embeddable also easy to use.</li>
+                <!-- Add more list items as needed -->
             </ul>
+        </section>
+
+        <!-- You could add a section with a code example here -->
+        <section>
+            <h2>Example Lua Code</h2>
+            <pre>
+-- Simple Lua example
+function greet(name)
+  print("Hello, " .. name .. "!")
+end
+
+greet("World")  -- Output: Hello, World!
+            </pre>
         </section>
 
     </main>
@@ -90,7 +256,32 @@
         <p>© <span id="current-year"></span> Project Fireplace</p>
     </footer>
     <script>
-      document.getElementById("current-year").textContent = new Date().getFullYear();
+        // Hamburger menu toggle
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburgerMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkmode-toggle');
+        const body = document.body;
+        const darkmodeLabel = document.querySelector(".darkmode-label");
+        //check for saved preference
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+
+        //apply saved preference
+        if(isDarkMode){
+            body.classList.add("dark-mode");
+        }
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+           // Save the user's preference in localStorage
+            localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+        });
+
+        document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
