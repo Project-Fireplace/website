@@ -4,25 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Lua Info</title>
-    <link rel="stylesheet" href="/lua/luna_style.css">  <!-- Assuming luna_style.css contains the styles below -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <script src="/script.js" defer></script> <!-- External JS is good -->
-
+    <!--  ALL STYLES IN ONE FILE (FOR DEMONSTRATION ONLY)
+          In a real project, use an external CSS file (luna_style.css). -->
     <style>
-        /*  It's better to put these styles in luna_style.css for maintainability
-            and separation of concerns.  I've included comments below showing
-            how to organize luna_style.css if you did that. */
-
         body {
-            font-family: 'Roboto', sans-serif; /* Good */
-            margin: 0; /* Remove default body margins */
-            background-color: #f4f4f4; /* Example background color */
-            color: #333; /* Example text color */
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        /* luna_style.css:  .sr-only { ... } */
         .sr-only {
             position: absolute;
             width: 1px;
@@ -34,102 +25,97 @@
             border: 0;
         }
 
-        /* luna_style.css:  header { ... } */
         header {
-            background-color: #fff; /* Example header background */
+            background-color: #fff;
             padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        /* luna_style.css:  nav { ... } */
         nav {
             display: flex;
-            justify-content: space-between; /* Align items to the ends */
-            align-items: center;  /* Vertically center items */
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* luna_style.css:  #hamburger-menu { ... } */
         #hamburger-menu {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 1.5rem; /* Adjust icon size as needed */
-            padding: 0.5rem; /* Add some padding for easier clicking */
-        }
-
-        /* luna_style.css: #nav-links { ... } */
-        #nav-links {
-            list-style: none; /* Remove bullet points */
-            padding: 0;
-            margin: 0;
-            display: flex; /* Display links in a row */
-            gap: 1rem;    /* Add space between links */
-        }
-
-        #nav-links li a,
-        #nav-links li button{
-            display: flex;
-            align-items: center;
-            gap: 0.5rem; /* Space between icon and text */
-            text-decoration: none; /* Remove underlines */
-            color: #333;  /* Example link color */
+            font-size: 1.5rem;
             padding: 0.5rem;
         }
 
-        /* luna_style.css: (styles for links on hover, etc.) */
-        #nav-links a:hover, #darkmode-toggle:hover{
-            color: #007bff; /* Example hover color */
+        #nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        #nav-links li a,
+        #nav-links li button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem;
+        }
+
+        #nav-links a:hover,
+        #darkmode-toggle:hover {
+            color: #007bff;
             text-decoration: underline;
         }
-        #darkmode-toggle{
+
+        #darkmode-toggle {
             background-color: transparent;
             border: none;
+            cursor: pointer; /* Add cursor pointer for better UX */
         }
 
 
-        /* luna_style.css:  h1, h2, h3 { ... } */
         h1, h2, h3 {
             font-weight: 500;
-            margin-bottom: 0.5em; /* Add spacing below headings */
+            margin-bottom: 0.5em;
         }
+
         h1 {
-            font-size: 2em; /* Adjust heading sizes as needed */
+            font-size: 2em;
         }
+
         h2 {
             font-size: 1.5em;
         }
 
-        /* luna_style.css:  main { ... } */
         main {
             padding: 2rem;
-            max-width: 800px; /* Limit content width for readability */
-            margin: 0 auto;    /* Center the content */
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        /* luna_style.css:  section { ... } */
         section {
-            margin-bottom: 2rem; /* Add spacing between sections */
+            margin-bottom: 2rem;
         }
 
-        /* luna_style.css:  pre { ... } */
         pre {
             font-family: monospace;
             background-color: #f0f0f0;
             padding: 1em;
             border: 1px solid #ccc;
             overflow-x: auto;
-            border-radius: 4px; /* Slightly rounded corners */
+            border-radius: 4px;
         }
 
-        /* luna_style.css: footer { ... } */
         footer {
             background-color: #333;
             color: #fff;
             padding: 1rem;
             text-align: center;
         }
-       
-        /* Dark Mode Styles (luna_style.css) */
+
+        /* Dark Mode Styles */
         body.dark-mode {
             background-color: #222;
             color: #eee;
@@ -137,14 +123,17 @@
 
         body.dark-mode header {
             background-color: #333;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Lighter shadow in dark mode */
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
         }
+
         body.dark-mode #nav-links li a,
-        body.dark-mode #nav-links li button{
+        body.dark-mode #nav-links li button {
             color: #eee;
         }
-         body.dark-mode #nav-links a:hover,  body.dark-mode #darkmode-toggle:hover{
-            color: lightblue; /* Example hover color */
+
+        body.dark-mode #nav-links a:hover,
+        body.dark-mode #darkmode-toggle:hover {
+            color: lightblue;
         }
 
         body.dark-mode pre {
@@ -152,36 +141,39 @@
             border-color: #666;
             color: #eee;
         }
-        body.dark-mode footer{
+
+        body.dark-mode footer {
             background-color: #444;
         }
+
         @media (max-width: 768px) {
             #nav-links {
-                display: none; /* Hide links by default on small screens */
-                flex-direction: column; /* Stack links vertically */
-                position: absolute;  /* Position the menu */
-                top: 60px;        /* Adjust as needed based on header height */
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
                 left: 0;
                 width: 100%;
-                background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+                background-color: rgba(255, 255, 255, 0.95);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 10;       /* Ensure menu appears above other content */
+                z-index: 10;
             }
 
             #nav-links.active {
-                display: flex; /* Show links when menu is active */
+                display: flex;
             }
 
             #nav-links li {
-                width: 100%;  /* Make links take up full width */
-            }
-            #nav-links li a, #nav-links li button {
-                padding: 1rem;
-                display: block; /* Make links take up full width */
-                border-bottom: 1px solid #eee;  /* Add a separator line */
+                width: 100%;
             }
 
-            /* Dark mode adjustments for the mobile menu */
+            #nav-links li a,
+            #nav-links li button {
+                padding: 1rem;
+                display: block;
+                border-bottom: 1px solid #eee;
+            }
+
             body.dark-mode #nav-links {
                 background-color: rgba(51, 51, 51, 0.95);
             }
@@ -190,15 +182,10 @@
                 border-bottom: 1px solid #444;
             }
         }
-        body.dark-mode #darkmode-toggle .darkmode-label::before{
-           content: "Dark Mode";
-        }
-        body:not(.dark-mode) #darkmode-toggle .darkmode-label::before{
-            content: "Light Mode"
-        }
-
-
     </style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -215,7 +202,7 @@
                 <li><a href="/contact/contact.html"><span class="material-icons" aria-hidden="true">contact_mail</span>Contact</a></li>
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
-                        <span class="material-icons" aria-hidden="true">dark_mode</span>
+                        <span class="material-icons" id="dark-mode-icon" aria-hidden="true">dark_mode</span>
                         <span class="darkmode-label"></span>
                     </button>
                 </li>
@@ -237,7 +224,6 @@
             </ul>
         </section>
 
-        <!-- You could add a section with a code example here -->
         <section>
             <h2>Example Lua Code</h2>
             <pre>
@@ -262,23 +248,50 @@ greet("World")  -- Output: Hello, World!
 
         hamburgerMenu.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            // Close navLinks if click outside nav and hamburger
+            const outsideClickListener = event => {
+                if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target) && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    document.removeEventListener('click', outsideClickListener);
+                }
+            }
+          document.addEventListener('click', outsideClickListener);
         });
+
+
 
         // Dark mode toggle
         const darkModeToggle = document.getElementById('darkmode-toggle');
         const body = document.body;
         const darkmodeLabel = document.querySelector(".darkmode-label");
+        const darkModeIcon = document.getElementById("dark-mode-icon");
         //check for saved preference
         const isDarkMode = localStorage.getItem("darkMode") === "true";
 
         //apply saved preference
         if(isDarkMode){
             body.classList.add("dark-mode");
+            darkmodeLabel.textContent = "Light Mode";
+            darkModeIcon.textContent = "light_mode";
+        } else {
+            darkmodeLabel.textContent = "Dark Mode";
+            darkModeIcon.textContent = "dark_mode"
         }
+
         darkModeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
+           const isNowDarkMode = body.classList.toggle('dark-mode');
            // Save the user's preference in localStorage
-            localStorage.setItem("darkMode", body.classList.contains("dark-mode"));
+            localStorage.setItem("darkMode", isNowDarkMode);
+
+            // Update label and icon
+            if(isNowDarkMode){
+                darkmodeLabel.textContent = "Light Mode";
+                darkModeIcon.textContent = "light_mode";
+
+            } else {
+                darkmodeLabel.textContent = "Dark Mode";
+                darkModeIcon.textContent = "dark_mode";
+            }
         });
 
         document.getElementById("current-year").textContent = new Date().getFullYear();
