@@ -5,13 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Fireplace - Lua Info</title>
     <!--  ALL STYLES IN ONE FILE (FOR DEMONSTRATION ONLY)
-          In a real project, use an external CSS file (luna_style.css). -->
+          In a real project, use an external CSS file (e.g., luna_style.css). -->
     <style>
+        :root {
+            /* Define colors for easier theming */
+            --bg-color-light: #f4f4f4;
+            --text-color-light: #333;
+            --header-bg-light: #fff;
+            --shadow-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --pre-bg-light: #f0f0f0;
+            --pre-border-light: #ccc;
+            --link-hover-light: #007bff;
+            --footer-bg-light: #333;
+            --footer-text-light: #fff;
+            --mobile-menu-bg-light: rgba(255, 255, 255, 0.95);
+            --mobile-menu-border-light: #eee;
+
+
+            --bg-color-dark: #222;
+            --text-color-dark: #eee;
+            --header-bg-dark: #333;
+            --shadow-dark: 0 2px 4px rgba(255, 255, 255, 0.1);
+            --pre-bg-dark: #444;
+            --pre-border-dark: #666;
+            --link-hover-dark: lightblue;
+            --footer-bg-dark: #444;
+            --footer-text-dark: #eee; /* Consistency */
+             --mobile-menu-bg-dark: rgba(51, 51, 51, 0.95);
+            --mobile-menu-border-dark: #444;
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color-light);
+            color: var(--text-color-light);
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
         }
 
         .sr-only {
@@ -22,19 +51,26 @@
             margin: -1px;
             overflow: hidden;
             clip: rect(0, 0, 0, 0);
+            white-space: nowrap; /* Added for robustness */
             border: 0;
         }
 
         header {
-            background-color: #fff;
+            background-color: var(--header-bg-light);
             padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-light);
+            position: sticky; /* Keep header visible on scroll */
+            top: 0;
+            z-index: 100; /* Ensure header is above content */
+             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px; /* Limit nav width on large screens */
+            margin: 0 auto; /* Center nav */
         }
 
         #hamburger-menu {
@@ -43,7 +79,15 @@
             cursor: pointer;
             font-size: 1.5rem;
             padding: 0.5rem;
+            display: none; /* Hide by default, show in media query */
+            color: var(--text-color-light); /* Inherit color */
         }
+         /* Style for when menu is open */
+        #hamburger-menu[aria-expanded="true"] .material-icons {
+             /* Optional: change icon to 'close' when open */
+             /* content: 'close'; */
+        }
+
 
         #nav-links {
             list-style: none;
@@ -51,6 +95,7 @@
             margin: 0;
             display: flex;
             gap: 1rem;
+            align-items: center; /* Align items vertically */
         }
 
         #nav-links li a,
@@ -59,30 +104,38 @@
             align-items: center;
             gap: 0.5rem;
             text-decoration: none;
-            color: #333;
+            color: var(--text-color-light);
             padding: 0.5rem;
+             transition: color 0.2s;
+             white-space: nowrap; /* Prevent wrapping */
         }
 
         #nav-links a:hover,
         #darkmode-toggle:hover {
-            color: #007bff;
-            text-decoration: underline;
+            color: var(--link-hover-light);
+            /* text-decoration: underline; Removed for cleaner look */
         }
 
         #darkmode-toggle {
             background-color: transparent;
             border: none;
-            cursor: pointer; /* Add cursor pointer for better UX */
+            cursor: pointer;
+             font-size: inherit; /* Match link font size */
         }
+         #darkmode-toggle .darkmode-label {
+             margin-left: 0.5rem; /* Space between icon and text */
+         }
 
 
         h1, h2, h3 {
             font-weight: 500;
+            margin-top: 1.5em; /* Add space above headings */
             margin-bottom: 0.5em;
         }
 
         h1 {
             font-size: 2em;
+             margin-top: 0; /* No top margin for first heading in main */
         }
 
         h2 {
@@ -92,7 +145,7 @@
         main {
             padding: 2rem;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 1rem auto; /* Add vertical margin */
         }
 
         section {
@@ -101,88 +154,129 @@
 
         pre {
             font-family: monospace;
-            background-color: #f0f0f0;
+            background-color: var(--pre-bg-light);
             padding: 1em;
-            border: 1px solid #ccc;
+            border: 1px solid var(--pre-border-light);
             overflow-x: auto;
             border-radius: 4px;
+             transition: background-color 0.3s, border-color 0.3s, color 0.3s;
         }
 
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: var(--footer-bg-light);
+            color: var(--footer-text-light);
             padding: 1rem;
             text-align: center;
+            margin-top: 2rem; /* Space above footer */
+             transition: background-color 0.3s, color 0.3s;
         }
 
         /* Dark Mode Styles */
         body.dark-mode {
-            background-color: #222;
-            color: #eee;
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
         }
 
         body.dark-mode header {
-            background-color: #333;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+            background-color: var(--header-bg-dark);
+            box-shadow: var(--shadow-dark);
         }
+
+         body.dark-mode #hamburger-menu {
+             color: var(--text-color-dark);
+         }
 
         body.dark-mode #nav-links li a,
         body.dark-mode #nav-links li button {
-            color: #eee;
+            color: var(--text-color-dark);
         }
 
         body.dark-mode #nav-links a:hover,
         body.dark-mode #darkmode-toggle:hover {
-            color: lightblue;
+            color: var(--link-hover-dark);
         }
 
         body.dark-mode pre {
-            background-color: #444;
-            border-color: #666;
-            color: #eee;
+            background-color: var(--pre-bg-dark);
+            border-color: var(--pre-border-dark);
+            color: var(--text-color-dark); /* Ensure code text is light */
         }
 
         body.dark-mode footer {
-            background-color: #444;
+            background-color: var(--footer-bg-dark);
+             color: var(--footer-text-dark);
         }
 
+         /* --- Responsive Styles --- */
         @media (max-width: 768px) {
+             nav {
+                 /* Allow flex-wrap if needed, though unlikely here */
+             }
+
+             #hamburger-menu {
+                 display: inline-flex; /* Show hamburger */
+                 align-items: center;
+                 justify-content: center;
+                 order: 1; /* Move hamburger to the right if needed */
+                 margin-left: auto; /* Push to the right */
+             }
+
             #nav-links {
-                display: none;
+                 /* Mobile menu styles */
+                display: none; /* Hide initially */
                 flex-direction: column;
                 position: absolute;
-                top: 60px;
+                top: 100%; /* Position below header */
                 left: 0;
                 width: 100%;
-                background-color: rgba(255, 255, 255, 0.95);
+                background-color: var(--mobile-menu-bg-light);
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 10;
+                z-index: 99; /* Below header, above content */
+                padding: 0; /* Reset padding */
+                 align-items: stretch; /* Make items full width */
+                 gap: 0; /* Reset gap */
             }
 
             #nav-links.active {
-                display: flex;
+                display: flex; /* Show when active */
             }
 
             #nav-links li {
                 width: 100%;
+                text-align: center;
             }
 
             #nav-links li a,
             #nav-links li button {
                 padding: 1rem;
-                display: block;
-                border-bottom: 1px solid #eee;
+                justify-content: center; /* Center icon and text */
+                border-bottom: 1px solid var(--mobile-menu-border-light);
+                width: 100%; /* Ensure full clickable area */
+                box-sizing: border-box; /* Include padding/border in width */
             }
+             #nav-links li:last-child a,
+             #nav-links li:last-child button {
+                 border-bottom: none; /* Remove border from last item */
+             }
+
 
             body.dark-mode #nav-links {
-                background-color: rgba(51, 51, 51, 0.95);
+                background-color: var(--mobile-menu-bg-dark);
             }
 
-            body.dark-mode #nav-links li a {
-                border-bottom: 1px solid #444;
+            body.dark-mode #nav-links li a,
+             body.dark-mode #nav-links li button {
+                 border-bottom-color: var(--mobile-menu-border-dark);
             }
+             body.dark-mode #nav-links li:last-child a,
+             body.dark-mode #nav-links li:last-child button {
+                  border-bottom: none;
+             }
         }
     </style>
+    <!-- Use Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
@@ -190,10 +284,8 @@
 <body>
     <header>
         <nav>
-            <button id="hamburger-menu" aria-label="Open Menu">
-                <span class="material-icons" aria-hidden="true">menu</span>
-                <span class="sr-only">Open Menu</span>
-            </button>
+             <!-- Consider adding a logo/brand name here -->
+             <!-- <a href="/index.html" class="brand-logo">Project Fireplace</a> -->
 
             <ul id="nav-links">
                 <li><a href="/index.html#home"><span class="material-icons" aria-hidden="true">home</span>Home</a></li>
@@ -203,98 +295,164 @@
                 <li>
                     <button id="darkmode-toggle" aria-label="Toggle Dark Mode">
                         <span class="material-icons" id="dark-mode-icon" aria-hidden="true">dark_mode</span>
-                        <span class="darkmode-label"></span>
+                        <span class="darkmode-label">Dark Mode</span> <!-- Initial Label -->
                     </button>
                 </li>
             </ul>
+
+            <button id="hamburger-menu" aria-label="Open Menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="material-icons" aria-hidden="true">menu</span>
+                <span class="sr-only">Open Menu</span>
+            </button>
         </nav>
     </header>
 
     <main>
         <h1>What is Lua?</h1>
         <p>
-            Lua is a coding language... (rest of your content)
+            Lua is a powerful, efficient, lightweight, embeddable scripting language. It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data description.
+        </p>
+        <p>
+            Developed in Brazil in 1993, Lua is known for its simplicity, speed, and ease of integration with applications written in other languages like C and C++. This makes it a popular choice for game development (e.g., Roblox, World of Warcraft addons), embedded systems, and configuration files.
         </p>
 
         <section>
             <h2>Key Features of Lua</h2>
             <ul>
-                <li>Lightweight and embeddable also easy to use.</li>
-                <!-- Add more list items as needed -->
+                <li><strong>Lightweight:</strong> The core Lua interpreter is very small, making it ideal for embedding.</li>
+                <li><strong>Embeddable:</strong> Designed from the ground up to be easily integrated into host applications.</li>
+                <li><strong>Fast:</strong> Often benchmarks among the fastest scripting languages.</li>
+                <li><strong>Portable:</strong> Written in clean C, Lua runs on a wide variety of platforms.</li>
+                <li><strong>Simple Syntax:</strong> Easy to learn and read, with a concise grammar.</li>
+                <li><strong>Extensible:</strong> Allows easy extension through Lua code or external C libraries.</li>
+                <li><strong>Garbage Collection:</strong> Automatic memory management simplifies development.</li>
             </ul>
         </section>
 
         <section>
             <h2>Example Lua Code</h2>
-            <pre>
--- Simple Lua example
+            <pre><code class="language-lua">-- Simple Lua example demonstrating functions and tables
+local player = {
+  name = "Hero",
+  level = 1,
+  inventory = {"sword", "potion"}
+}
+
 function greet(name)
-  print("Hello, " .. name .. "!")
+  print("Hello, " .. name .. "!") -- String concatenation
 end
 
-greet("World")  -- Output: Hello, World!
-            </pre>
+function levelUp(character)
+  character.level = character.level + 1
+  print(character.name .. " reached level " .. character.level .. "!")
+end
+
+greet("World")          -- Output: Hello, World!
+levelUp(player)         -- Output: Hero reached level 2!
+print("Inventory size: " .. #player.inventory) -- Output: Inventory size: 2
+</code></pre>
+             <!-- Add lang attribute or class for syntax highlighting libraries -->
         </section>
 
     </main>
 
     <footer>
-        <p>© <span id="current-year"></span> Project Fireplace</p>
+        <p>© <span id="current-year"></span> Project Fireplace. All rights reserved.</p>
     </footer>
+
     <script>
-        // Hamburger menu toggle
+        // --- Elements ---
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const navLinks = document.getElementById('nav-links');
-
-        hamburgerMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Close navLinks if click outside nav and hamburger
-            const outsideClickListener = event => {
-                if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target) && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    document.removeEventListener('click', outsideClickListener);
-                }
-            }
-          document.addEventListener('click', outsideClickListener);
-        });
-
-
-
-        // Dark mode toggle
         const darkModeToggle = document.getElementById('darkmode-toggle');
         const body = document.body;
         const darkmodeLabel = document.querySelector(".darkmode-label");
         const darkModeIcon = document.getElementById("dark-mode-icon");
-        //check for saved preference
-        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        const currentYearSpan = document.getElementById("current-year");
 
-        //apply saved preference
-        if(isDarkMode){
-            body.classList.add("dark-mode");
-            darkmodeLabel.textContent = "Light Mode";
-            darkModeIcon.textContent = "light_mode";
-        } else {
-            darkmodeLabel.textContent = "Dark Mode";
-            darkModeIcon.textContent = "dark_mode"
-        }
+        // --- State ---
+        let isMenuOpen = false;
 
-        darkModeToggle.addEventListener('click', () => {
-           const isNowDarkMode = body.classList.toggle('dark-mode');
-           // Save the user's preference in localStorage
-            localStorage.setItem("darkMode", isNowDarkMode);
+        // --- Functions ---
+
+        // Function to handle clicks outside the mobile menu
+        const handleOutsideClick = (event) => {
+            // If the click is outside the nav links and the hamburger, and the menu is open
+            if (!navLinks.contains(event.target) && !hamburgerMenu.contains(event.target) && isMenuOpen) {
+                toggleMenu(); // Close the menu
+            }
+        };
+
+        // Function to toggle the mobile menu
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen; // Toggle state
+            navLinks.classList.toggle('active');
+            hamburgerMenu.setAttribute('aria-expanded', isMenuOpen); // Update ARIA attribute
+
+            if (isMenuOpen) {
+                // Change hamburger aria-label to "Close Menu"
+                hamburgerMenu.setAttribute('aria-label', 'Close Menu');
+                // Add listener for clicks outside the menu ONLY when menu is opened
+                // Use setTimeout to avoid immediate closing if the click was on the hamburger itself
+                setTimeout(() => {
+                    document.addEventListener('click', handleOutsideClick);
+                }, 0);
+            } else {
+                 // Change hamburger aria-label back to "Open Menu"
+                hamburgerMenu.setAttribute('aria-label', 'Open Menu');
+                // Remove the listener when menu is closed
+                document.removeEventListener('click', handleOutsideClick);
+            }
+        };
+
+        // Function to set dark mode state
+        const setDarkMode = (isDark) => {
+            body.classList.toggle('dark-mode', isDark); // Add/remove class based on boolean
+            localStorage.setItem("darkMode", isDark); // Save preference
 
             // Update label and icon
-            if(isNowDarkMode){
-                darkmodeLabel.textContent = "Light Mode";
-                darkModeIcon.textContent = "light_mode";
+            darkmodeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+            darkModeIcon.textContent = isDark ? "light_mode" : "dark_mode";
+            darkModeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'Light' : 'Dark'} Mode`);
+        };
 
-            } else {
-                darkmodeLabel.textContent = "Dark Mode";
-                darkModeIcon.textContent = "dark_mode";
-            }
+        // --- Event Listeners ---
+
+        // Hamburger menu toggle
+        hamburgerMenu.addEventListener('click', toggleMenu);
+
+        // Dark mode toggle
+        darkModeToggle.addEventListener('click', () => {
+            const isCurrentlyDark = body.classList.contains('dark-mode');
+            setDarkMode(!isCurrentlyDark); // Toggle the state
         });
 
-        document.getElementById("current-year").textContent = new Date().getFullYear();
+        // --- Initial Setup ---
+
+        // Check for saved dark mode preference on load
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedDarkMode = localStorage.getItem("darkMode");
+
+        // Initialize dark mode based on saved pref, OS pref, or default (light)
+        if (savedDarkMode !== null) {
+             setDarkMode(savedDarkMode === "true");
+        } else {
+             setDarkMode(prefersDark); // Respect OS preference if no setting saved
+        }
+
+
+        // Set current year in footer
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Ensure nav is closed on larger screens if window is resized from small
+         window.addEventListener('resize', () => {
+             if (window.innerWidth > 768 && isMenuOpen) {
+                 toggleMenu(); // Close menu if window becomes wider than mobile breakpoint
+             }
+         });
+
     </script>
 </body>
 </html>
